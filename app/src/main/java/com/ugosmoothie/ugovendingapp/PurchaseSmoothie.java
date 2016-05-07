@@ -14,7 +14,7 @@ import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
 import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
 
 public class PurchaseSmoothie extends AppCompatActivity {
-
+    // test change for reviewable.io
     private uGoViewPager m_uGoViewPage;
     private AsyncServer asyncServer;
     @Override
