@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">uGoVendingApp</string>
+
+<string name="lingual">FRANÇAIS</string>
+
+    <string name="smoothie">SVP CHOISIR UNE RECETTE</string>
+    <string name="smoothie_1">ULTRA VERTE</string>
+    <string name="smoothie_2">PARAIS TROPICAL</string>
+    <string name="smoothie_3">AIES PULPEUSES</string>
+    <string name="const_price">+$5</string>
+
+    <string name="element_1">RECETTE</string>
+    <string name="element_2">LIQUIDE</string>
+    <string name="element_3">SUPPLÉMENT</string>
+    <string name="element_4">TOTAL</string>
+
+    <string name="element_1_val"> </string>
+    <string name="element_2_val"> </string>
+    <string name="element_3_val"> </string>
+    <string name="element_4_val"> </string>
+
+    <string name="liquid">CHOISIR VOTRE LIQUIDE</string>
+    <string name="liquid_1">EAU</string>
+    <string name="liquid_2">EAU DE NOIX DE COCO</string>
+    <string name="liquid_3">"LAIT D'AMANDE"</string>
+    <string name="floor_price">+$0</string>
+    <string name="ceiling_price">+$1</string>
+
+    <string name="supplement">CHOISISSEZ UN SUPPLÉMENT ($1)</string>
+    <string name="no_supplement">"PAS POUR L'ISNTANT"</string>
+    <string name="supplement_1">AMANDES FRACASSE MAISON</string>
+    <string name="supplement_2">POUDRE DE GRAINE DE CITROUILLE</string>
+    <string name="supplement_3">GRAINES DE LIN BROYÉES</string>
+    <string name="supplement_4">PROTÉINE DE CHANVRE`</string>
+
+    <string name="payment_instruction">"S'IL COUS PLAIÎT VOIR CLAVIER POUR PAYER"</string>-->
+
+</resources>

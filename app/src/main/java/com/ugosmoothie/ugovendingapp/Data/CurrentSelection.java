@@ -11,59 +11,63 @@ public class CurrentSelection {
         return ourInstance;
     }
 
-    private Smoothie currentSmoothie;
-    private Liquid currentLiquid;
-    private Supplement currentSupplement;
+    private int currentSmoothieId;
+    private int currentLiquidId;
+    private int currentSupplementId;
     private float total;
     private CurrentSelection() {
-        currentSmoothie = null;
-        currentLiquid = null;
-        currentSupplement = null;
+        currentSmoothieId = -1;
+        currentLiquidId = -1;
+        currentSupplementId = -1;
         total = 0;
     }
 
-    public void setCurrentSmoothie(Smoothie smoothie) {
-        this.currentSmoothie = smoothie;
+    public void setCurrentSmoothie(int smoothie) {
+        this.currentSmoothieId = smoothie;
         calculateTotal();
     }
 
-    public void setCurrentLiquid(Liquid liquid) {
-        this.currentLiquid = liquid;
+    public void setCurrentLiquid(int liquid) {
+        this.currentLiquidId = liquid;
         calculateTotal();
     }
 
-    public void setCurrentSupplement(Supplement supplement) {
-        this.currentSupplement = supplement;
+    public void setCurrentSupplement(int supplement) {
+        this.currentSupplementId = supplement;
         calculateTotal();
     }
 
-    public Smoothie getCurrentSmoothie() {
-        return this.currentSmoothie;
+    public int getCurrentSmoothie() {
+
+        return this.currentSmoothieId;
     }
 
-    public Liquid getCurrentLiquid() {
-        return this.currentLiquid;
+    public int getCurrentLiquid() {
+
+        return this.currentLiquidId;
     }
 
-    public Supplement getCurrentSupplement() {
-        return this.currentSupplement;
+    public int getCurrentSupplement() {
+
+        return this.currentSupplementId;
     }
 
     public float getTotal() {
+
         return this.total;
     }
 
-    private void calculateTotal() {
-        if (this.currentSmoothie != null) {
-            total = this.currentSmoothie.Price;
+     private void calculateTotal() {
+        if (this.currentSmoothieId >= 0 && this.currentSmoothieId <= 2) {
+            total = 5;
         }
 
-        if (this.currentLiquid != null) {
-            total += this.currentLiquid.Price;
+        if (this.currentLiquidId > 0 && this.currentLiquidId <= 2) {
+            total += 1;
         }
 
-        if (this.currentSupplement != null) {
-            total += this.currentSupplement.Price;
+        if (this.currentSupplementId > 0 && this.currentSupplementId <= 4) {
+            total += 1;
         }
     }
 }

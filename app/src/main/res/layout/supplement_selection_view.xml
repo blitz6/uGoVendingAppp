@@ -1,17 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/powder_screen"
+    android:weightSum="1"
+    android:orientation="horizontal">
+
+    <!--Layout: Purchase Details-->
+    <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_gravity="bottom"
+    android:layout_marginLeft="05dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Supplement"
-        android:id="@+id/textView6" />
+        android:text="@string/element_1"
+        android:id="@+id/element_1"
+        android:layout_alignParentStart="false"
+        android:textStyle="bold"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp" />
 
-    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/supplementListView"
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/element_2"
+        android:id="@+id/element_2"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="230dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/element_3"
+        android:id="@+id/element_3"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="295dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/element_4"
+        android:id="@+id/element_4"
+        android:layout_alignParentEnd="false"
+        android:textStyle="bold"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="450dp" />
+
+        <TextView
+            android:layout_width="75dp"
+            android:layout_height="65dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/element_1_val"
+            android:id="@+id/element_1_val"
+            android:layout_below="@+id/element_1"
+            android:layout_alignEnd="@+id/element_1"
+            android:layout_marginRight="-20dp"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/element_2_val"
+            android:id="@+id/element_2_val"
+            android:layout_below="@+id/element_1"
+            android:layout_alignEnd="@+id/element_1"
+            android:layout_marginRight="-85dp"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/element_3_val"
+            android:id="@+id/element_3_val"
+            android:layout_below="@+id/element_1"
+            android:layout_alignEnd="@+id/element_1"
+            android:layout_marginRight="-180dp"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/element_4_val"
+            android:id="@+id/element_4_val"
+            android:layout_below="@+id/element_1"
+            android:layout_alignEnd="@+id/element_1"
+            android:layout_marginRight="-325dp"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    <!--Layout for No Supplement -->
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="-55dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginLeft="-580dp"
+        android:id="@+id/nextTime_tag"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_supplement"
+            android:id="@+id/no_supplement"
+            android:layout_marginTop="75dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <!--Layout for Smashed Almonds-->
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="-55dp"
+        android:layout_marginLeft="-195dp"
+        android:id="@+id/alm_tag"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="@string/supplement_1"
+            android:id="@+id/supplement_1"
+            android:layout_marginTop="65dp"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            android:layout_marginLeft="20dp" />
+
+    </RelativeLayout>
+
+    <!--Layout for PUMPKIN SEED POWDER -->
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="-55dp"
+        android:id="@+id/pmkn_tag"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/supplement_2"
+            android:id="@+id/supplement_2"
+            android:textStyle="bold"
+            android:layout_marginTop="65dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="false"
+            android:layout_alignParentRight="false"
+            android:gravity="center_horizontal" />
+    </RelativeLayout>
+
+    <!--Layout for GROUND FLAX SEED -->
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="05dp"
+        android:layout_marginTop="-55dp"
+        android:id="@+id/flx_tag"
+        android:clickable="true">>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/supplement_3"
+            android:id="@+id/supplement_3"
+            android:textStyle="bold"
+            android:layout_alignParentStart="false"
+            android:layout_marginTop="65dp"
+            android:layout_marginLeft="25dp"
+            android:layout_alignParentEnd="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal" />
+    </RelativeLayout>
+
+    <!--Layout for HEMP PROTEIN -->
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="05dp"
+        android:layout_marginTop="-55dp"
+        android:id="@+id/hp_tag"
+        android:clickable="true">>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/supplement_4"
+            android:id="@+id/supplement_4"
+            android:textStyle="bold"
+            android:layout_alignParentStart="false"
+            android:layout_marginTop="65dp"
+            android:layout_marginLeft="25dp"
+            android:layout_alignParentEnd="false"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal" />
+    </RelativeLayout>
+    <!--Text: Header-->
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/supplement"
+        android:id="@+id/supplement"
+        android:layout_gravity="top"
+        android:layout_marginLeft="-400dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal" />
+    <!--Button: Language-->
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="60dp"
+        android:layout_height="56dp"
+        android:text="@string/lingual"
+        android:id="@+id/lingual_tag"
+        android:layout_gravity="right|top"
+        android:layout_marginLeft="42dp"
+        android:background="#00ffffff"
+        android:textSize="10dp"
+        android:clickable="true" />
+
+    <!--Button: Previous-->
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/previous_id"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="-580dp"
+        android:background="#00ffffff"
+        android:textSize="10sp"
+        android:clickable="true" />
+    <!--Button: Refresh-->
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/refresh_id"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="15dp"
+        android:background="#00ffffff"
+        android:textSize="10sp"
+        android:clickable="true" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        android:id="@+id/smoothie_tag"
+        android:layout_marginLeft="-100dp"
+        android:background="@drawable/green_smoothie"
+        android:layout_gravity="bottom" />
 </LinearLayout>
+
+

@@ -9,7 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name="com.orm.SugarApp">
-        <activity android:name=".PurchaseSmoothie">
+        <activity
+            android:name=".PurchaseSmoothie"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

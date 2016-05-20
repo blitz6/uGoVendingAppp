@@ -1,3 +1,41 @@
 <resources>
     <string name="app_name">uGoVendingApp</string>
+
+
+  <string name="lingual">ENGLISH</string>
+
+  <string name="smoothie">CHOOSE A SMOOTHIE</string>
+  <string name="smoothie_1">GREEN MACHINE</string>
+  <string name="smoothie_2">TROPICAL PARADISE</string>
+  <string name="smoothie_3">BERRY LICIOUS</string>
+  <string name="const_price">+$5</string>
+
+  <string name="element_1">RECIPE</string>
+  <string name="element_2">LIQUID</string>
+  <string name="element_3">SUPPLEMENT </string>
+  <string name="element_4">TOTAL</string>
+
+  <string name="element_1_val"> </string>
+  <string name="element_2_val"> </string>
+  <string name="element_3_val"> </string>
+  <string name="element_4_val"> </string>
+
+  <string name="liquid">CHOOSE A LIQUID</string>
+  <string name="liquid_1">WATER</string>
+  <string name="liquid_2">COCONUT WATER</string>
+  <string name="liquid_3">ALMOND MILK</string>
+  <string name="floor_price">+$0</string>
+  <string name="ceiling_price">+$1</string>
+
+  <string name="supplement">CHOOSE A SUPPLEMENT ($1)</string>
+  <string name="no_supplement">NEXT TIME</string>
+  <string name="supplement_1">SMASHED ALMONDS</string>
+  <string name="supplement_2">PUMPKIN SEED POWDER</string>
+  <string name="supplement_3">GROUND FLAX SEED</string>
+  <string name="supplement_4">HEMP PROTEIN</string>
+
+  <string name="payment_instruction">PLEASE SEE KEYPAD TO PAY</string>
+
 </resources>
+
+

@@ -21,7 +21,6 @@ public class PaymentFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.payment_view, container, false);
 
         Button button = (Button) rootView.findViewById(R.id.emulatePaymentbutton);
         button.setOnClickListener(new View.OnClickListener() {

@@ -26,15 +26,8 @@ public class PurchaseSmoothie extends AppCompatActivity {
         m_uGoViewPage = (uGoViewPager)findViewById(R.id.container);
         m_uGoViewPage.setAdapter(mSmoothiePagerAdapter);
         m_uGoViewPage.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
+          @Override
             public void onPageSelected(int arg0) {
-                if (m_uGoViewPage.getCurrentItem() == 0 || m_uGoViewPage.getCurrentItem() > 4) {
-                    findViewById(R.id.startOverButton).setVisibility(View.GONE);
-                    findViewById(R.id.goBackButton).setVisibility(View.GONE);
-                } else {
-                    findViewById(R.id.startOverButton).setVisibility(View.VISIBLE);
-                    findViewById(R.id.goBackButton).setVisibility(View.VISIBLE);
-                }
             }
 
             @Override
@@ -61,25 +54,13 @@ public class PurchaseSmoothie extends AppCompatActivity {
     private BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            //String eventType = intent.getStringExtra("eventType");
-            //if (eventType.equals(EventTypes.SmoothieEvent.Complete.getSmoothieEvent())) {
-                // we finished a smoothie
-            Toast.makeText(getApplicationContext(), "Your Order is ready!!", Toast.LENGTH_SHORT).show();
-                //m_uGoViewPage.setCurrentItem(0);
+            String eventType = intent.getStringExtra("eventType");
+            if (eventType.equals(EventTypes.SmoothieEvent.Complete.getSmoothieEvent())) {
+                //we finished a smoothie
+                Toast.makeText(getApplicationContext(), "Your Order is ready!!", Toast.LENGTH_SHORT).show();
+                m_uGoViewPage.setCurrentItem(0);
 
-            //}
+            }
         }
     };
-
-    public void startOver_Click(View view) {
-        CurrentSelection.getInstance().setCurrentSmoothie(null);
-        CurrentSelection.getInstance().setCurrentLiquid(null);
-        CurrentSelection.getInstance().setCurrentSupplement(null);
-        m_uGoViewPage.setCurrentItem(0);
-    }
-
-    public void goBack_Click(View view) {
-        m_uGoViewPage.setCurrentItem(m_uGoViewPage.getCurrentItem() - 1);
-    }
-
 }

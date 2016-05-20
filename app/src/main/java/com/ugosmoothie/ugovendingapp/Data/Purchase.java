@@ -58,9 +58,6 @@ public class Purchase extends SugarRecord {
         return obj;
     }
 
-    public List<Supplement> getRecommendedSupplements() {
-        return null;
-    }
 
     public void Completed() {
         this.completed = true;
