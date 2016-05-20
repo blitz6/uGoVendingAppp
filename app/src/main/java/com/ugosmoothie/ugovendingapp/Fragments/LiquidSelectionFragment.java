@@ -13,9 +13,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.R;
 import com.ugosmoothie.ugovendingapp.Data.*;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
+import com.ugosmoothie.ugovendingapp.R;
+
 import java.util.Locale;
 
 
@@ -92,8 +93,6 @@ public class LiquidSelectionFragment extends Fragment {
                     setLocal("fr");
                     setLang_french(true);
                 }
-
-                inflater.inflate(R.layout.liquid_selection_view, container, false);
             }
         });
 

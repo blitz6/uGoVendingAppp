@@ -22,23 +22,25 @@ public class PaymentFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        Button button = (Button) rootView.findViewById(R.id.emulatePaymentbutton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                completeTransaction();
-            }
-        });
 
-        return rootView;
+
+//        Button button = (Button) rootView.findViewById(R.id.emulatePaymentbutton);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                completeTransaction();
+//            }
+//        });
+
+        return null;
     }
 
     public void completeTransaction() {
         // save the purchase to the database
         Purchase purchase = new Purchase(
-                CurrentSelection.getInstance().getCurrentSmoothie().getId(),
-                CurrentSelection.getInstance().getCurrentLiquid().getId(),
-                CurrentSelection.getInstance().getCurrentSupplement().getId(),
+                (long)CurrentSelection.getInstance().getCurrentSmoothie(),
+                (long)CurrentSelection.getInstance().getCurrentLiquid(),
+                (long)CurrentSelection.getInstance().getCurrentSupplement(),
                 false,
                 CurrentSelection.getInstance().getTotal()
                 );

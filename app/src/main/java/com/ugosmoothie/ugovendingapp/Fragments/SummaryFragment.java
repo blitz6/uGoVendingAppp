@@ -21,19 +21,28 @@ public class SummaryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.summary_view, container, false);
 
-        final TextView selectedSmoothie = (TextView) rootView.findViewById(R.id.selectedSmoothieTextView);
+        final TextView selectedSmoothie = (TextView) rootView.findViewById(R.id.element_1_val);
 
-        if (CurrentSelection.getInstance().getCurrentSmoothie() != null) {
-            selectedSmoothie.setText(CurrentSelection.getInstance().getCurrentSmoothie().toString());
+        switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
+            case 1:
+                selectedSmoothie.setText("smoothie 1");
+                break;
+            case 2:
+                selectedSmoothie.setText("smoothie 2");
+                break;
+            case 3:
+                selectedSmoothie.setText("smoothie 3");
+                break;
         }
 
-        Button button = (Button) rootView.findViewById(R.id.confirmPurchaseButton);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                confirmPurchase();
-            }
-        });
+        /* TODO: Add button */
+//        Button button = (Button) rootView.findViewById(R.id.confirmPurchaseButton);
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                confirmPurchase();
+//            }
+//        });
         return rootView;
     }
 

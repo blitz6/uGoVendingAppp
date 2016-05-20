@@ -12,9 +12,10 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import android.R;
 import com.ugosmoothie.ugovendingapp.Data.*;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
+import com.ugosmoothie.ugovendingapp.R;
+
 import java.util.Locale;
 
 
@@ -69,7 +70,7 @@ public class SmoothieSelectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
 
         inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rootView = inflater.inflate(R.layout, container, false);
+        View rootView = inflater.inflate(R.layout.smoothie_selection_view, container, false);
         final Button lang =  (Button) rootView.findViewById(R.id.lingual_tag);
         RelativeLayout smoothie_g = (RelativeLayout) rootView.findViewById(R.id.smoothie_g);
         RelativeLayout smoothie_t = (RelativeLayout) rootView.findViewById(R.id.smoothie_t);
@@ -89,7 +90,6 @@ public class SmoothieSelectionFragment extends Fragment {
                     setLocal("fr");
                     setLang_french(true);
                 }
-                inflater.inflate(, container, false);
             }
         });
 

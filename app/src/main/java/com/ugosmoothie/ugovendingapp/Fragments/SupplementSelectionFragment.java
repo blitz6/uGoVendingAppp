@@ -81,13 +81,13 @@ public class SupplementSelectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rootView = inflater.inflate(android.R.layout.supplement_selection_view, container, false);
-        final Button lang =  (Button) rootView.findViewById(android.R.id.lingual_tag);
-        RelativeLayout supplement_n = (RelativeLayout) rootView.findViewById(android.R.id.nextTime_tag);
-        RelativeLayout supplement_a = (RelativeLayout) rootView.findViewById(android.R.id.alm_tag);
-        RelativeLayout supplement_p = (RelativeLayout) rootView.findViewById(android.R.id.pmkn_tag);
-        RelativeLayout supplement_f = (RelativeLayout) rootView.findViewById(android.R.id.flx_tag);
-        RelativeLayout supplement_h = (RelativeLayout) rootView.findViewById(android.R.id.hp_tag);
+        View rootView = inflater.inflate(R.layout.supplement_selection_view, container, false);
+        final Button lang =  (Button) rootView.findViewById(R.id.lingual_tag);
+        RelativeLayout supplement_n = (RelativeLayout) rootView.findViewById(R.id.nextTime_tag);
+        RelativeLayout supplement_a = (RelativeLayout) rootView.findViewById(R.id.alm_tag);
+        RelativeLayout supplement_p = (RelativeLayout) rootView.findViewById(R.id.pmkn_tag);
+        RelativeLayout supplement_f = (RelativeLayout) rootView.findViewById(R.id.flx_tag);
+        RelativeLayout supplement_h = (RelativeLayout) rootView.findViewById(R.id.hp_tag);
 
         //Language Change
         setLocal("fr");
@@ -103,7 +103,7 @@ public class SupplementSelectionFragment extends Fragment {
                     setLang_french(true);
                 }
 
-                inflater.inflate(android.R.layout.supplement_selection_view, container, false);
+                //inflater.inflate(android.R.layout.supplement_selection_view, container, false);
             }
         });
 

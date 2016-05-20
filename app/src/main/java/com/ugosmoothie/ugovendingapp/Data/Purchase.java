@@ -43,15 +43,9 @@ public class Purchase extends SugarRecord {
         try {
             obj.put("eventType", EventTypes.SmoothieEvent.Purchase.name());
             obj.put("orderId", this.getId());
-            if (CurrentSelection.getInstance().getCurrentSmoothie() != null) {
-                obj.put("smoothieName", CurrentSelection.getInstance().getCurrentSmoothie().Name);
-            }
-            if (CurrentSelection.getInstance().getCurrentLiquid() != null) {
-                obj.put("liquidName", CurrentSelection.getInstance().getCurrentLiquid().Name);
-            }
-            if (CurrentSelection.getInstance().getCurrentSmoothie() != null) {
-                obj.put("supplementName", CurrentSelection.getInstance().getCurrentSupplement().Name);
-            }
+            obj.put    ("smoothieName", CurrentSelection.getInstance().getCurrentSmoothie());
+            obj.put("liquidName", CurrentSelection.getInstance().getCurrentLiquid());
+            obj.put("supplementName", CurrentSelection.getInstance().getCurrentSupplement());
         } catch (JSONException jsonEx) {
             Log.e("JSON", jsonEx.getMessage());
         }

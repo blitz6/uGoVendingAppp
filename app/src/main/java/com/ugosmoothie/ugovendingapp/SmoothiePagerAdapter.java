@@ -34,4 +34,10 @@ public class SmoothiePagerAdapter extends FragmentStatePagerAdapter {
         }
         return null;
     }
+
+    @Override
+    public int getCount() {
+        return 5;
+    }
+
 }
