@@ -10,10 +10,19 @@
 
 <RelativeLayout
 android:layout_width="match_parent"
-android:layout_height="132dp"
+android:layout_height="250dp"
 android:layout_gravity="center_vertical"
 android:layout_marginLeft="-10dp"
-    android:layout_marginTop="30dp">
+android:layout_marginTop="60dp">
+
+<ImageView
+    android:layout_width="100dp"
+    android:layout_height="200dp"
+    android:id="@+id/smoothie_tag"
+    android:layout_marginLeft="80dp"
+    android:layout_marginTop="20dp"
+    android:background="@drawable/green_smoothie"
+    android:layout_gravity="bottom" />
 
 <TextView
     android:layout_width="wrap_content"
@@ -22,8 +31,9 @@ android:layout_marginLeft="-10dp"
     android:id="@+id/element_1"
     android:layout_alignParentStart="false"
     android:textStyle="bold"
-    android:layout_marginLeft="150dp"
+    android:layout_marginLeft="300dp"
     android:layout_marginTop="15dp"
+    android:textSize="30sp"
     android:layout_marginBottom="10dp" />
 
 <TextView
@@ -33,7 +43,8 @@ android:layout_marginLeft="-10dp"
     android:id="@+id/element_2"
     android:textStyle="bold"
     android:layout_marginTop="15dp"
-    android:layout_marginLeft="250dp" />
+    android:textSize="30sp"
+    android:layout_marginLeft="530dp" />
 
 <TextView
     android:layout_width="wrap_content"
@@ -42,7 +53,8 @@ android:layout_marginLeft="-10dp"
     android:id="@+id/element_3"
     android:textStyle="bold"
     android:layout_marginTop="15dp"
-    android:layout_marginLeft="340dp" />
+    android:textSize="30sp"
+    android:layout_marginLeft="715dp" />
 
 <TextView
     android:layout_width="wrap_content"
@@ -52,96 +64,105 @@ android:layout_marginLeft="-10dp"
     android:layout_alignParentEnd="false"
     android:textStyle="bold"
     android:layout_marginTop="15dp"
-    android:layout_marginLeft="500dp" />
+    android:textSize="30sp"
+    android:layout_marginLeft="1050dp" />
 
     <TextView
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/element_1_val"
         android:id="@+id/element_1_val"
         android:layout_below="@+id/element_1"
         android:layout_alignEnd="@+id/element_1"
-        android:layout_marginRight="-20dp"
+        android:layout_marginRight="-30dp"
+        android:layout_marginTop="50dp"
         android:gravity="center" />
     <TextView
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/element_2_val"
         android:id="@+id/element_2_val"
         android:layout_below="@+id/element_1"
         android:layout_alignEnd="@+id/element_1"
-        android:layout_marginRight="-120dp"
+        android:layout_marginRight="-250dp"
+        android:layout_marginTop="50dp"
         android:gravity="center" />
     <TextView
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/element_3_val"
         android:id="@+id/element_3_val"
         android:layout_below="@+id/element_1"
         android:layout_alignEnd="@+id/element_1"
-        android:layout_marginRight="-225dp"
+        android:layout_marginRight="-480dp"
+        android:layout_marginTop="50dp"
         android:gravity="center" />
     <TextView
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/element_4_val"
         android:id="@+id/element_4_val"
         android:layout_below="@+id/element_1"
         android:layout_alignEnd="@+id/element_1"
-        android:layout_marginRight="-370dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="-770dp"
         android:gravity="center" />
 
 </RelativeLayout>
 
     <TextView
-        android:layout_width="300dp"
+        android:layout_width="550dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/payment_instruction"
         android:id="@+id/payment_instruction"
         android:layout_gravity="top"
-        android:layout_marginLeft="-420dp"
-        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="-880dp"
+        android:layout_marginTop="100dp"
+        android:textSize="40sp"
         android:gravity="center_horizontal" />
 
+    <!--Button: Language-->
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="60dp"
-        android:layout_height="56dp"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
         android:text="@string/lingual"
         android:id="@+id/lingual_tag"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="200dp"
         android:layout_gravity="right|top"
-        android:layout_marginLeft="55dp"
+        android:background="#00ffffff"
+        android:textSize="20sp"
+        android:clickable="true" />
+
+    <!--Button: Previous-->
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/previous_id"
+        android:layout_gravity="left|top"
+        android:layout_marginLeft="-1225dp"
+        android:layout_marginTop="10dp"
         android:background="#00ffffff"
         android:textSize="10sp"
         android:clickable="true" />
-
+    <!--Button: Refresh-->
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/previous_id"
-        android:layout_gravity="left|top"
-        android:layout_marginLeft="-580dp"
-        android:background="#00ffffff" />
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/refresh_id"
         android:layout_gravity="left|top"
-        android:layout_marginLeft="15dp"
-        android:background="#00ffffff" />
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="150dp"
-        android:id="@+id/smoothie_tag"
-        android:layout_marginLeft="-120dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/green_smoothie"
-        android:layout_gravity="center_vertical" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:background="#00ffffff"
+        android:clickable="true" />
+
 </LinearLayout>

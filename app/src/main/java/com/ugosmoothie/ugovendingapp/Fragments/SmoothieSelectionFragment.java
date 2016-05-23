@@ -1,6 +1,7 @@
 package com.ugosmoothie.ugovendingapp.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -15,8 +16,13 @@ import android.widget.RelativeLayout;
 import com.ugosmoothie.ugovendingapp.Data.*;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
 import com.ugosmoothie.ugovendingapp.R;
+import android.support.v4.content.IntentCompat;
+
+
 
 import java.util.Locale;
+
+import static android.content.Intent.getIntent;
 
 
 /**
@@ -90,7 +96,9 @@ public class SmoothieSelectionFragment extends Fragment {
                     setLocal("fr");
                     setLang_french(true);
                 }
+
             }
+
         });
 
         //Choosing Smoothie
