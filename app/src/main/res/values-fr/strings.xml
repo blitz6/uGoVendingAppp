@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">uGoVendingApp</string>
 
-<string name="lingual">FRANÇAIS</string>
+<string name="lingual">ENGLISH</string>
 
     <string name="smoothie">SVP CHOISIR UNE RECETTE</string>
     <string name="smoothie_1">ULTRA VERTE</string>
