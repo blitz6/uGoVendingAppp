@@ -73,7 +73,7 @@ public class LiquidSelectionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rootView = inflater.inflate(R.layout.smoothie_selection_view, container, false);
+        View rootView = inflater.inflate(R.layout.liquid_selection_view, container, false);
         final Button lang =  (Button) rootView.findViewById(R.id.lingual_tag);
         RelativeLayout liquid_w = (RelativeLayout) rootView.findViewById(R.id.water_tag);
         RelativeLayout liquid_c = (RelativeLayout) rootView.findViewById(R.id.cocowater_tag);
