@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import com.ugosmoothie.ugovendingapp.Data.*;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
 import com.ugosmoothie.ugovendingapp.R;
+import com.ugosmoothie.ugovendingapp.SmoothiePagerAdapter;
 
 import java.util.Locale;
 
@@ -27,9 +28,6 @@ public class SmoothieSelectionFragment extends Fragment {
     private int green_machine = 1;
     private int tropical_paradise = 2;
     private int berry_licious = 3;
-    private Boolean lang_french = true;
-
-    Locale myLocale;
 
     public int getGreen_machine(){
         return green_machine;
@@ -43,29 +41,7 @@ public class SmoothieSelectionFragment extends Fragment {
         return berry_licious;
     }
 
-    public Boolean getLang_french(){
-        return lang_french;
-    }
-    public void setLang_french(Boolean lang_french) {
-        this.lang_french = lang_french;
-    }
 
-    //Set Language in Locale
-    private void setLocal(String language)
-    {
-        myLocale = new Locale(language);
-        Resources res = getResources();
-        DisplayMetrics dm = res.getDisplayMetrics();
-        Configuration conf = res.getConfiguration();
-        conf.locale = myLocale;
-        res.updateConfiguration(conf, dm);
-
-/*        Locale.setDefault(locale);
-        Configuration config = new Configuration();
-        config.locale = locale;
-        getActivity().getBaseContext().getResources().updateConfiguration(config,
-        getActivity().getBaseContext().getResources().getDisplayMetrics());*/
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
 
@@ -76,20 +52,10 @@ public class SmoothieSelectionFragment extends Fragment {
         RelativeLayout smoothie_t = (RelativeLayout) rootView.findViewById(R.id.smoothie_t);
         RelativeLayout smoothie_b = (RelativeLayout) rootView.findViewById(R.id.smoothie_b);
 
-        //Language Change
-        setLocal("fr");
-        setLang_french(true);
         lang.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(getLang_french()) {
-                    setLocal("en");
-                    setLang_french(false);
-                }
-                else{
-                    setLocal("fr");
-                    setLang_french(true);
-                }
+                ((PurchaseSmoothie) getActivity()).ToggleLanguage();
             }
         });
 
