@@ -26,6 +26,7 @@
     <string name="floor_price">+$0</string>
     <string name="ceiling_price">+$1</string>
 
+
     <string name="supplement">CHOISISSEZ UN SUPPLÉMENT ($1)</string>
     <string name="no_supplement">"PAS POUR L'ISNTANT"</string>
     <string name="supplement_1">AMANDES FRACASSE MAISON</string>

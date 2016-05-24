@@ -1,119 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="@drawable/summary_screen"
     android:weightSum="1"
     android:orientation="horizontal">
 
+<!--Layout: Purchase Details-->
+    <RelativeLayout
+        android:layout_width="950dp"
+        android:layout_height="210dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginTop="45dp">
 
-<RelativeLayout
-android:layout_width="match_parent"
-android:layout_height="250dp"
-android:layout_gravity="center_vertical"
-android:layout_marginLeft="-10dp"
-android:layout_marginTop="60dp">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:id="@+id/smoothie_tag"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/green_smoothie"
+            android:layout_gravity="bottom" />
 
-<ImageView
-    android:layout_width="100dp"
-    android:layout_height="200dp"
-    android:id="@+id/smoothie_tag"
-    android:layout_marginLeft="80dp"
-    android:layout_marginTop="20dp"
-    android:background="@drawable/green_smoothie"
-    android:layout_gravity="bottom" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/element_1"
+            android:id="@+id/element_1"
+            android:layout_alignParentStart="false"
+            android:textStyle="bold"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:layout_marginBottom="10dp" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/element_1"
-    android:id="@+id/element_1"
-    android:layout_alignParentStart="false"
-    android:textStyle="bold"
-    android:layout_marginLeft="300dp"
-    android:layout_marginTop="15dp"
-    android:textSize="30sp"
-    android:layout_marginBottom="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/element_2"
+            android:id="@+id/element_2"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:layout_marginLeft="350dp" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/element_2"
-    android:id="@+id/element_2"
-    android:textStyle="bold"
-    android:layout_marginTop="15dp"
-    android:textSize="30sp"
-    android:layout_marginLeft="530dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/element_3"
+            android:id="@+id/element_3"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:layout_marginLeft="455dp" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/element_3"
-    android:id="@+id/element_3"
-    android:textStyle="bold"
-    android:layout_marginTop="15dp"
-    android:textSize="30sp"
-    android:layout_marginLeft="715dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/element_4"
+            android:id="@+id/element_4"
+            android:layout_alignParentEnd="false"
+            android:textStyle="bold"
+            android:layout_marginTop="15dp"
+            android:textSize="22sp"
+            android:layout_marginLeft="680dp" />
 
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/element_4"
-    android:id="@+id/element_4"
-    android:layout_alignParentEnd="false"
-    android:textStyle="bold"
-    android:layout_marginTop="15dp"
-    android:textSize="30sp"
-    android:layout_marginLeft="1050dp" />
+        <TextView
+            android:layout_width="135dp"
+            android:layout_height="100dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/element_1_val"
+            android:id="@+id/element_1_val"
+            android:layout_below="@+id/element_1"
+            android:layout_alignEnd="@+id/element_1"
+            android:layout_marginRight="-35dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="135dp"
+            android:layout_height="100dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/element_2_val"
+            android:id="@+id/element_2_val"
+            android:layout_below="@+id/element_1"
+            android:layout_alignEnd="@+id/element_1"
+            android:layout_marginRight="-180dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="135dp"
+            android:layout_height="100dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/element_3_val"
+            android:id="@+id/element_3_val"
+            android:layout_below="@+id/element_1"
+            android:layout_alignEnd="@+id/element_1"
+            android:layout_marginRight="-325dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center" />
+        <TextView
+            android:layout_width="135dp"
+            android:layout_height="100dp"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/element_4_val"
+            android:id="@+id/element_4_val"
+            android:layout_below="@+id/element_1"
+            android:layout_alignEnd="@+id/element_1"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="-510dp"
+            android:gravity="center" />
 
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/element_1_val"
-        android:id="@+id/element_1_val"
-        android:layout_below="@+id/element_1"
-        android:layout_alignEnd="@+id/element_1"
-        android:layout_marginRight="-30dp"
-        android:layout_marginTop="50dp"
-        android:gravity="center" />
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/element_2_val"
-        android:id="@+id/element_2_val"
-        android:layout_below="@+id/element_1"
-        android:layout_alignEnd="@+id/element_1"
-        android:layout_marginRight="-250dp"
-        android:layout_marginTop="50dp"
-        android:gravity="center" />
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/element_3_val"
-        android:id="@+id/element_3_val"
-        android:layout_below="@+id/element_1"
-        android:layout_alignEnd="@+id/element_1"
-        android:layout_marginRight="-480dp"
-        android:layout_marginTop="50dp"
-        android:gravity="center" />
-    <TextView
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/element_4_val"
-        android:id="@+id/element_4_val"
-        android:layout_below="@+id/element_1"
-        android:layout_alignEnd="@+id/element_1"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="-770dp"
-        android:gravity="center" />
+    </RelativeLayout>
 
-</RelativeLayout>
-
+<!--Header-->
     <TextView
         android:layout_width="550dp"
         android:layout_height="wrap_content"
@@ -122,45 +123,46 @@ android:layout_marginTop="60dp">
         android:id="@+id/payment_instruction"
         android:layout_gravity="top"
         android:textStyle="bold"
-        android:layout_marginLeft="-880dp"
+        android:layout_marginLeft="-730dp"
         android:layout_marginTop="100dp"
         android:textSize="40sp"
         android:gravity="center_horizontal" />
 
-    <!--Button: Language-->
+<!--Button: Language-->
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="100dp"
+        android:layout_width="80dp"
         android:layout_height="80dp"
         android:text="@string/lingual"
         android:id="@+id/lingual_tag"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="200dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="-15dp"
         android:layout_gravity="right|top"
         android:background="#00ffffff"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:clickable="true" />
 
-    <!--Button: Previous-->
+<!--Button: Previous-->
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/previous_id"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/previous_tag"
         android:layout_gravity="left|top"
-        android:layout_marginLeft="-1225dp"
+        android:layout_marginLeft="-815dp"
         android:layout_marginTop="10dp"
         android:background="#00ffffff"
         android:textSize="10sp"
         android:clickable="true" />
-    <!--Button: Refresh-->
+
+<!--Button: Refresh-->
     <Button
         style="?android:attr/buttonStyleSmall"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:id="@+id/refresh_id"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:id="@+id/refresh_tag"
         android:layout_gravity="left|top"
-        android:layout_marginLeft="30dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="10dp"
         android:background="#00ffffff"
         android:clickable="true" />
