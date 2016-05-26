@@ -29,21 +29,33 @@ public class PurchaseSmoothie extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase_smoothie);
-        refresh();
-        m_uGoViewPage.setSwipeEnabled(true);
+        refresh_curr_frag();
+        m_uGoViewPage.setSwipeEnabled(false);
         // start the AsyncServer
         asyncServer = AsyncServer.getInstance();
         asyncServer.registerListener(this, "complete");
         this.registerReceiver(receiver, new IntentFilter("complete"));
     }
 
-    private void refresh() {
+    private void refresh_curr_frag() {
         SmoothiePagerAdapter mSmoothiePagerAdapter = new SmoothiePagerAdapter(getSupportFragmentManager());
         m_uGoViewPage = (uGoViewPager)findViewById(R.id.container);
         int currentItem = m_uGoViewPage.getCurrentItem();
         m_uGoViewPage.setAdapter(null);
         m_uGoViewPage.setAdapter(mSmoothiePagerAdapter);
         m_uGoViewPage.setCurrentItem(currentItem);
+    }
+
+    public void refresh(){
+        int na = -1;
+        SmoothiePagerAdapter mSmoothiePagerAdapter = new SmoothiePagerAdapter(getSupportFragmentManager());
+        m_uGoViewPage = (uGoViewPager)findViewById(R.id.container);
+        CurrentSelection.getInstance().setCurrentSmoothie(na);
+        CurrentSelection.getInstance().setCurrentLiquid(na);
+        CurrentSelection.getInstance().setCurrentSupplement(na);
+        m_uGoViewPage.setAdapter(null);
+        m_uGoViewPage.setAdapter(mSmoothiePagerAdapter);
+        m_uGoViewPage.setCurrentItem(0);
     }
 
     public uGoViewPager GetUGoViewPager() { return m_uGoViewPage; }
@@ -81,6 +93,6 @@ public class PurchaseSmoothie extends AppCompatActivity {
             lang_french = true;
         }
 
-        refresh();
+        refresh_curr_frag();
     }
 }

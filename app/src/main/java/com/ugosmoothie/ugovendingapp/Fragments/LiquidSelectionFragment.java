@@ -50,6 +50,8 @@ public class LiquidSelectionFragment extends Fragment {
         inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rootView = inflater.inflate(R.layout.liquid_selection_view, container, false);
         final Button lang =  (Button) rootView.findViewById(R.id.lingual_tag);
+        final Button previous =  (Button) rootView.findViewById(R.id.previous_tag);
+        final Button ref =  (Button) rootView.findViewById(R.id.refresh_tag);
         RelativeLayout liquid_w = (RelativeLayout) rootView.findViewById(R.id.water_tag);
         RelativeLayout liquid_c = (RelativeLayout) rootView.findViewById(R.id.cocowater_tag);
         RelativeLayout liquid_a = (RelativeLayout) rootView.findViewById(R.id.almondmilk_tag);
@@ -61,25 +63,39 @@ public class LiquidSelectionFragment extends Fragment {
             }
         });
 
+        previous.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((PurchaseSmoothie) getActivity()).refresh();
+            }
+        });
+
+        ref.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((PurchaseSmoothie) getActivity()).refresh();
+            }
+        });
+
         //Choosing Smoothie
         liquid_w.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                CurrentSelection.getInstance().setCurrentSmoothie(getWater());
+                CurrentSelection.getInstance().setCurrentLiquid(getWater());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
             }
         });
         liquid_c.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                CurrentSelection.getInstance().setCurrentSmoothie(getCoco_water());
+                CurrentSelection.getInstance().setCurrentLiquid(getCoco_water());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
             }
         });
         liquid_a.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                CurrentSelection.getInstance().setCurrentSmoothie(getAlmond_milk());
+                CurrentSelection.getInstance().setCurrentLiquid(getAlmond_milk());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
             }
         });

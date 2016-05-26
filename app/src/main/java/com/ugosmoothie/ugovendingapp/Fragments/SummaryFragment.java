@@ -20,7 +20,9 @@ public class SummaryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.summary_view, container, false);
-
+        final Button lang =  (Button) rootView.findViewById(R.id.lingual_tag);
+        final Button previous =  (Button) rootView.findViewById(R.id.previous_tag);
+        final Button ref =  (Button) rootView.findViewById(R.id.refresh_tag);
         final TextView selectedSmoothie = (TextView) rootView.findViewById(R.id.element_1_val);
 
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
@@ -35,6 +37,28 @@ public class SummaryFragment extends Fragment {
                 break;
         }
 
+        lang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((PurchaseSmoothie) getActivity()).ToggleLanguage();
+            }
+        });
+
+        previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int na = -1;
+                CurrentSelection.getInstance().setCurrentSupplement(na);
+                ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
+            }
+        });
+
+        ref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((PurchaseSmoothie) getActivity()).refresh();
+            }
+        });
         /* TODO: Add button */
 //        Button button = (Button) rootView.findViewById(R.id.confirmPurchaseButton);
 //        button.setOnClickListener(new View.OnClickListener() {

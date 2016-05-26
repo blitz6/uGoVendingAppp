@@ -49,6 +49,6 @@ public class PaymentFragment extends Fragment {
         // send the purchase to any listening clients
         AsyncServer.getInstance().SendMessage(purchase.toJSONObject());
 
-        ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(5);
+        ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(0);
     }
 }

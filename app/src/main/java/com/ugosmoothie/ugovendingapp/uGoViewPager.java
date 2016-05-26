@@ -6,14 +6,14 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 /**
- * Created by Michelle on 3/5/2016.
+ * Created by Michelle on 3/5/2016
  */
 public class uGoViewPager extends ViewPager {
     private boolean swipeEnabled;
 
     public uGoViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
-        this.swipeEnabled = false;
+        this.swipeEnabled = true;
     }
 
     @Override
