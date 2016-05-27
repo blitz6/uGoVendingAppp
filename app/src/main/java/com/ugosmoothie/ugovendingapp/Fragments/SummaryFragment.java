@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
@@ -24,18 +25,70 @@ public class SummaryFragment extends Fragment {
         final Button previous =  (Button) rootView.findViewById(R.id.previous_tag);
         final Button ref =  (Button) rootView.findViewById(R.id.refresh_tag);
         final TextView selectedSmoothie = (TextView) rootView.findViewById(R.id.element_1_val);
+        final ImageView smoothie = (ImageView) rootView.findViewById(R.id.smoothie_tag);
+        final TextView selectedLiquid = (TextView) rootView.findViewById(R.id.element_2_val);
+        final TextView selectedSupplement = (TextView) rootView.findViewById(R.id.element_3_val);
+        final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val);
 
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
-            case 1:
-                selectedSmoothie.setText("smoothie 1");
+            case 0:{
+                selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_1));
+                smoothie.setBackground(getContext().getResources().getDrawable(R.drawable.green_smoothie));
+            }
                 break;
-            case 2:
-                selectedSmoothie.setText("smoothie 2");
+            case 1:{
+                selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_2));
+                smoothie.setBackground(getContext().getResources().getDrawable(R.drawable.pink_smoothie));
+        }
                 break;
-            case 3:
-                selectedSmoothie.setText("smoothie 3");
+            case 2:{
+                selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_3));
+                smoothie.setBackground(getContext().getResources().getDrawable(R.drawable.purple_smoothie));
+            }
+                break;
+            default:
                 break;
         }
+
+        switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
+            case 0:{
+                selectedLiquid.setText(getContext().getResources().getString(R.string.liquid_1));
+            }
+                break;
+            case 1:{
+                selectedLiquid.setText(getContext().getResources().getString(R.string.liquid_2));
+            }
+                break;
+            case 2:{
+                selectedLiquid.setText(getContext().getResources().getString(R.string.liquid_3));
+            }
+                break;
+            default:
+                break;
+        }
+
+        switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
+            case 1:{
+                selectedSupplement.setText(getContext().getResources().getString(R.string.supplement_1));
+            }
+                break;
+            case 2:{
+                selectedSupplement.setText(getContext().getResources().getString(R.string.supplement_2));
+            }
+                break;
+            case 3:{
+                selectedSupplement.setText(getContext().getResources().getString(R.string.supplement_3));
+            }
+                break;
+            case 4:{
+                selectedSupplement.setText(getContext().getResources().getString(R.string.supplement_4));
+            }
+                break;
+            default:
+                break;
+        }
+
+        totalval.setText("$" + CurrentSelection.getInstance().getTotal());
 
         lang.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +112,7 @@ public class SummaryFragment extends Fragment {
                 ((PurchaseSmoothie) getActivity()).refresh();
             }
         });
+
         /* TODO: Add button */
 //        Button button = (Button) rootView.findViewById(R.id.confirmPurchaseButton);
 //        button.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +121,7 @@ public class SummaryFragment extends Fragment {
 //                confirmPurchase();
 //            }
 //        });
+
         return rootView;
     }
 

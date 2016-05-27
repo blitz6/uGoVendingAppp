@@ -12,7 +12,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.ugosmoothie.ugovendingapp.Data.*;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
 import com.ugosmoothie.ugovendingapp.R;
@@ -27,9 +30,9 @@ import java.util.Locale;
  */
 public class LiquidSelectionFragment extends Fragment {
 
-    private int water = 1;
-    private int coco_water = 2;
-    private int almond_milk = 3;
+    private int water = 0;
+    private int coco_water = 1;
+    private int almond_milk = 2;
 
     public int getWater(){
         return water;
@@ -55,6 +58,30 @@ public class LiquidSelectionFragment extends Fragment {
         RelativeLayout liquid_w = (RelativeLayout) rootView.findViewById(R.id.water_tag);
         RelativeLayout liquid_c = (RelativeLayout) rootView.findViewById(R.id.cocowater_tag);
         RelativeLayout liquid_a = (RelativeLayout) rootView.findViewById(R.id.almondmilk_tag);
+        final TextView selectedSmoothie = (TextView) rootView.findViewById(R.id.element_1_val);
+        final ImageView smoothie = (ImageView) rootView.findViewById(R.id.smoothie_tag);
+        final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val);
+
+
+        switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
+            case 0:{
+                selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_1));
+                smoothie.setBackground(getContext().getResources().getDrawable(R.drawable.green_smoothie));
+            }
+            break;
+            case 1:{
+                selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_2));
+                smoothie.setBackground(getContext().getResources().getDrawable(R.drawable.pink_smoothie));
+            }
+            break;
+            case 2:{
+                selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_3));
+                smoothie.setBackground(getContext().getResources().getDrawable(R.drawable.purple_smoothie));
+            }
+            break;
+        }
+
+        totalval.setText("$" + CurrentSelection.getInstance().getTotal());
 
         lang.setOnClickListener(new OnClickListener() {
             @Override
@@ -83,6 +110,7 @@ public class LiquidSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentLiquid(getWater());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
+                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
         liquid_c.setOnClickListener(new OnClickListener() {
@@ -90,6 +118,7 @@ public class LiquidSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentLiquid(getCoco_water());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
+                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
         liquid_a.setOnClickListener(new OnClickListener() {
@@ -97,41 +126,10 @@ public class LiquidSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentLiquid(getAlmond_milk());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
+                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
 
-
-            /*checkDefaults();
-
-            List<Smoothie> smoothies = Smoothie.listAll(Smoothie.class);
-
-            final SmoothieArrayAdapter smoothieAdapter = new SmoothieArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, smoothies);
-
-            listview.setAdapter(smoothieAdapter);
-
-            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    CurrentSelection.getInstance().setCurrentSmoothie(Smoothie.findById(Smoothie.class, id));
-                    ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(1);
-                }
-            });
-
-            return rootView;
-        }*/
-
-/*    private void checkDefaults() {
-        if (Smoothie.listAll(Smoothie.class).size() == 0) {
-            Smoothie greenMachine = new Smoothie("Green Machine", 0l, 0l, 5.00f);
-            greenMachine.save();
-
-            Smoothie berryLicious = new Smoothie("Berry-Licious", 0l, 0l, 5.00f);
-            berryLicious.save();
-
-            Smoothie tropicalParadise = new Smoothie("Tropical Paradise", 0l, 0l, 5.00f);
-            tropicalParadise.save();
-        }
-    }*/
         return rootView;
     }
 }

@@ -29,9 +29,9 @@ import static android.content.Intent.getIntent;
  */
 public class SmoothieSelectionFragment extends Fragment {
 
-    private int green_machine = 1;
-    private int tropical_paradise = 2;
-    private int berry_licious = 3;
+    private int green_machine = 0;
+    private int tropical_paradise = 1;
+    private int berry_licious = 2;
 
     public int getGreen_machine(){
         return green_machine;
@@ -70,6 +70,7 @@ public class SmoothieSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentSmoothie(getGreen_machine());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(1);
+                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
         smoothie_t.setOnClickListener(new OnClickListener() {
@@ -77,6 +78,7 @@ public class SmoothieSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentSmoothie(getTropical_paradise());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(1);
+                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
         smoothie_b.setOnClickListener(new OnClickListener() {
@@ -84,41 +86,11 @@ public class SmoothieSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentSmoothie(getBerry_licious());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(1);
+                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
 
 
-            /*checkDefaults();
-
-            List<Smoothie> smoothies = Smoothie.listAll(Smoothie.class);
-
-            final SmoothieArrayAdapter smoothieAdapter = new SmoothieArrayAdapter(getActivity(), android.R.layout.simple_list_item_1, smoothies);
-
-            listview.setAdapter(smoothieAdapter);
-
-            listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    CurrentSelection.getInstance().setCurrentSmoothie(Smoothie.findById(Smoothie.class, id));
-                    ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(1);
-                }
-            });
-
-            return rootView;
-        }*/
-
-/*    private void checkDefaults() {
-        if (Smoothie.listAll(Smoothie.class).size() == 0) {
-            Smoothie greenMachine = new Smoothie("Green Machine", 0l, 0l, 5.00f);
-            greenMachine.save();
-
-            Smoothie berryLicious = new Smoothie("Berry-Licious", 0l, 0l, 5.00f);
-            berryLicious.save();
-
-            Smoothie tropicalParadise = new Smoothie("Tropical Paradise", 0l, 0l, 5.00f);
-            tropicalParadise.save();
-        }
-    }*/
         return rootView;
     }
 }

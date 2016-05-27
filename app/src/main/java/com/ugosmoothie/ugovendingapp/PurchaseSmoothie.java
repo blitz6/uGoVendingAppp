@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
 import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
 
+import java.io.File;
 import java.util.Locale;
 
 public class PurchaseSmoothie extends AppCompatActivity {
@@ -37,7 +38,7 @@ public class PurchaseSmoothie extends AppCompatActivity {
         this.registerReceiver(receiver, new IntentFilter("complete"));
     }
 
-    private void refresh_curr_frag() {
+    public void refresh_curr_frag() {
         SmoothiePagerAdapter mSmoothiePagerAdapter = new SmoothiePagerAdapter(getSupportFragmentManager());
         m_uGoViewPage = (uGoViewPager)findViewById(R.id.container);
         int currentItem = m_uGoViewPage.getCurrentItem();
@@ -95,4 +96,5 @@ public class PurchaseSmoothie extends AppCompatActivity {
 
         refresh_curr_frag();
     }
+
 }

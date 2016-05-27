@@ -58,16 +58,19 @@ public class CurrentSelection {
     }
 
      private void calculateTotal() {
-        if (this.currentSmoothieId >= 0 && this.currentSmoothieId <= 2) {
+         if (this.currentLiquidId == 0 || this.currentSupplementId == 0){
+             total += 0;
+         }
+         if (this.currentSmoothieId >= 0 && this.currentSmoothieId <= 2) {
             total = 5;
-        }
+         }
 
-        if (this.currentLiquidId > 0 && this.currentLiquidId <= 2) {
-            total += 1;
-        }
+         if (this.currentLiquidId >= 1 && this.currentLiquidId <= 2) {
+            total++;
+         }
 
-        if (this.currentSupplementId > 0 && this.currentSupplementId <= 4) {
-            total += 1;
-        }
+         if (this.currentSupplementId >= 1 && this.currentSupplementId <= 4) {
+            total++;
+         }
     }
 }

@@ -72,45 +72,49 @@
             android:layout_height="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/element_1_val"
+            android:textSize="20dp"
             android:id="@+id/element_1_val"
             android:layout_below="@+id/element_1"
             android:layout_alignEnd="@+id/element_1"
             android:layout_marginRight="-35dp"
             android:layout_marginTop="30dp"
-            android:gravity="center" />
+            android:gravity="center_vertical|center" />
         <TextView
             android:layout_width="135dp"
             android:layout_height="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/element_2_val"
+            android:textSize="20dp"
             android:id="@+id/element_2_val"
             android:layout_below="@+id/element_1"
             android:layout_alignEnd="@+id/element_1"
             android:layout_marginRight="-180dp"
             android:layout_marginTop="30dp"
-            android:gravity="center" />
+            android:gravity="center_vertical|center" />
         <TextView
             android:layout_width="135dp"
             android:layout_height="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/element_3_val"
+            android:textSize="20dp"
             android:id="@+id/element_3_val"
             android:layout_below="@+id/element_1"
             android:layout_alignEnd="@+id/element_1"
             android:layout_marginRight="-325dp"
             android:layout_marginTop="30dp"
-            android:gravity="center" />
+            android:gravity="center_vertical|center" />
         <TextView
             android:layout_width="135dp"
             android:layout_height="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/element_4_val"
+            android:textSize="20dp"
             android:id="@+id/element_4_val"
             android:layout_below="@+id/element_1"
             android:layout_alignEnd="@+id/element_1"
             android:layout_marginTop="30dp"
             android:layout_marginRight="-510dp"
-            android:gravity="center" />
+            android:gravity="center_vertical|center" />
 
     </RelativeLayout>
 
@@ -139,7 +143,7 @@
         android:layout_marginLeft="-17dp"
         android:layout_gravity="right|top"
         android:background="#00ffffff"
-        android:textSize="15sp"
+        android:textSize="25sp"
         android:clickable="true" />
 
 <!--Button: Previous-->
