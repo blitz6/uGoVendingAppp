@@ -14,7 +14,7 @@ import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
 import com.ugosmoothie.ugovendingapp.R;
 
 /**
- * Created by Michelle on 3/14/2016.
+ * Created by Michelle on 3/14/2016
  */
 public class SummaryFragment extends Fragment {
 
@@ -50,7 +50,7 @@ public class SummaryFragment extends Fragment {
                 break;
         }
 
-        switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
+        switch(CurrentSelection.getInstance().getCurrentLiquid()) {
             case 0:{
                 selectedLiquid.setText(getContext().getResources().getString(R.string.liquid_1));
             }
@@ -67,7 +67,7 @@ public class SummaryFragment extends Fragment {
                 break;
         }
 
-        switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
+        switch(CurrentSelection.getInstance().getCurrentSupplement()) {
             case 1:{
                 selectedSupplement.setText(getContext().getResources().getString(R.string.supplement_1));
             }

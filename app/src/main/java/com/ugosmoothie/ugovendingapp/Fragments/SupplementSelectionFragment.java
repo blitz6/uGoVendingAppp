@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -27,7 +26,7 @@ import java.util.Locale;
 
 
 /**
- * Created by Michelle on 3/14/2016.
+ * Created by Michelle on 3/14/2016
  */
 public class SupplementSelectionFragment extends Fragment {
 
@@ -90,7 +89,7 @@ public class SupplementSelectionFragment extends Fragment {
             break;
         }
 
-        switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
+        switch(CurrentSelection.getInstance().getCurrentLiquid()) {
             case 0:{
                 selectedLiquid.setText(getContext().getResources().getString(R.string.liquid_1));
             }

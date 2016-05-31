@@ -68,7 +68,7 @@
             android:layout_marginLeft="680dp" />
 
         <TextView
-            android:layout_width="135dp"
+            android:layout_width="140dp"
             android:layout_height="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/element_1_val"
@@ -80,7 +80,7 @@
             android:layout_marginTop="30dp"
             android:gravity="center_vertical|center" />
         <TextView
-            android:layout_width="135dp"
+            android:layout_width="140dp"
             android:layout_height="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/element_2_val"

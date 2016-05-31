@@ -26,7 +26,7 @@ import java.util.Locale;
 
 
 /**
- * Created by Michelle on 3/14/2016.
+ * Created by Michelle on 3/14/2016
  */
 public class LiquidSelectionFragment extends Fragment {
 
