@@ -47,7 +47,7 @@
         android:layout_height="80dp"
         android:text="@string/smoothie"
         android:id="@+id/textView"
-        android:layout_marginLeft="-40dp"
+        android:layout_marginLeft="-70dp"
         android:textStyle="bold"
         android:gravity="center_horizontal"
         android:textSize="38sp" />
@@ -59,7 +59,7 @@
         android:layout_gravity="bottom"
         android:clickable="true"
         android:layout_marginTop="-50dp"
-        android:layout_marginLeft="-425dp"
+        android:layout_marginLeft="-395dp"
         android:id="@+id/smoothie_t">
 
         <TextView

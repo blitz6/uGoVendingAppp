@@ -18,7 +18,7 @@
         android:layout_width="85dp"
         android:layout_height="165dp"
         android:id="@+id/smoothie_tag"
-        android:layout_marginLeft="55dp"
+        android:layout_marginLeft="60dp"
         android:background="@drawable/green_smoothie"
         android:layout_gravity="bottom" />
 
@@ -63,7 +63,7 @@
         android:textStyle="bold"
         android:layout_marginTop="45dp"
         android:textSize="20sp"
-        android:layout_marginLeft="635dp" />
+        android:layout_marginLeft="655dp" />
 
     <TextView
         android:layout_width="95dp"
@@ -72,9 +72,9 @@
         android:text="@string/element_1_val"
         android:textSize="15sp"
         android:id="@+id/element_1_val"
-        android:layout_below="@+id/element_1"
         android:layout_marginLeft="200dp"
-        android:gravity="center_vertical|center"
+        android:layout_marginTop="80dp"
+        android:gravity="center_horizontal|center"
         android:editable="true" />
     <TextView
         android:layout_width="95dp"
@@ -83,10 +83,9 @@
         android:text="@string/element_2_val"
         android:textSize="15sp"
         android:id="@+id/element_2_val"
-        android:layout_below="@+id/element_1"
-        android:layout_alignEnd="@+id/element_1"
-        android:layout_marginRight="-115dp"
-        android:gravity="center_vertical|center"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="80dp"
+        android:gravity="center_horizontal|center"
         android:editable="true" />
     <TextView
         android:layout_width="150dp"
@@ -95,21 +94,19 @@
         android:text="@string/element_3_val"
         android:textSize="15sp"
         android:id="@+id/element_3_val"
-        android:layout_below="@+id/element_1"
-        android:layout_alignEnd="@+id/element_1"
         android:gravity="center_vertical|center"
-        android:layout_marginRight="-263dp"
+        android:layout_marginLeft="395dp"
+        android:layout_marginTop="80dp"
         android:editable="true" />
     <TextView
         android:layout_width="135dp"
-        android:layout_height="75dp"
+        android:layout_height="80dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/element_4_val"
         android:textSize="15sp"
         android:id="@+id/element_4_val"
-        android:layout_below="@+id/element_1"
-        android:layout_alignEnd="@+id/element_1"
-        android:layout_marginRight="-460dp"
+        android:layout_marginLeft="615dp"
+        android:layout_marginTop="80dp"
         android:gravity="center_vertical|center"
         android:editable="true" />
 
@@ -131,7 +128,7 @@
             android:layout_height="wrap_content"
             android:text="@string/no_supplement"
             android:id="@+id/no_supplement"
-            android:layout_marginTop="94dp"
+            android:layout_marginTop="100dp"
             android:layout_gravity="center_horizontal"
             android:textSize="16sp"
             android:layout_marginLeft="35dp"
@@ -154,8 +151,8 @@
             android:layout_height="wrap_content"
             android:text="@string/supplement_1"
             android:id="@+id/supplement_1"
-            android:layout_marginTop="85dp"
-            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="87dp"
+            android:layout_gravity="center_vertical|center"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_marginLeft="30dp" />
