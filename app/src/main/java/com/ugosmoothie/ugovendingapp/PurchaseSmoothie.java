@@ -11,9 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
+import com.ugosmoothie.ugovendingapp.Fragments.SupplementSelectionFragment;
 import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
 
 import java.io.File;
@@ -32,10 +35,131 @@ public class PurchaseSmoothie extends AppCompatActivity {
         setContentView(R.layout.activity_purchase_smoothie);
         refresh_curr_frag();
         m_uGoViewPage.setSwipeEnabled(false);
+
+        m_uGoViewPage.addOnPageChangeListener(
+                new ViewPager.OnPageChangeListener() {
+                    @Override
+                    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                    }
+
+                    @Override
+                    public void onPageSelected(int position) {
+                        TextView val1 = (TextView) findViewById(R.id.element_4_val_1);
+                        TextView val2 = (TextView) findViewById(R.id.element_4_val_2);
+                        TextView val3 = (TextView) findViewById(R.id.element_4_val_3);
+
+                        if (val1 != null)
+                            val1.setText("$" + CurrentSelection.getInstance().getTotal());
+                        if (val2 != null)
+                            val2.setText("$" + CurrentSelection.getInstance().getTotal());
+                        if (val3 != null)
+                            val3.setText("$" + CurrentSelection.getInstance().getTotal());
+
+
+                        final TextView selectedSmoothie = (TextView) findViewById(R.id.element_1_val);
+                        final ImageView smoothie = (ImageView) findViewById(R.id.smoothie_tag);
+                        update_smoothie_text_and_image(selectedSmoothie, smoothie);
+
+
+                        final TextView selectedLiquid_1 = (TextView) findViewById(R.id.element_2_val_1);
+                        final TextView selectedLiquid_2 = (TextView) findViewById(R.id.element_2_val_2);
+                        final TextView selectedLiquid_3 = (TextView) findViewById(R.id.element_2_val_3);
+                        update_liquid_text(selectedLiquid_1);
+                        update_liquid_text(selectedLiquid_2);
+                        update_liquid_text(selectedLiquid_3);
+
+                        final TextView selectedSupplement_1 = (TextView) findViewById(R.id.element_3_val_1);
+                        final TextView selectedSupplement_2 = (TextView) findViewById(R.id.element_3_val_2);
+                        final TextView selectedSupplement_3 = (TextView) findViewById(R.id.element_3_val_3);
+                        update_supplement_text(selectedSupplement_1);
+                        update_supplement_text(selectedSupplement_2);
+                        update_supplement_text(selectedSupplement_3);
+                    }
+
+                    @Override
+                    public void onPageScrollStateChanged(int state) {
+
+                    }
+                }
+        );
         // start the AsyncServer
         asyncServer = AsyncServer.getInstance();
         asyncServer.registerListener(this, "complete");
         this.registerReceiver(receiver, new IntentFilter("complete"));
+    }
+
+    public void update_smoothie_text_and_image(TextView textView, ImageView imageView) {
+        if (textView != null && imageView != null) {
+            switch (CurrentSelection.getInstance().getCurrentSmoothie()) {
+                case 0: {
+                    textView.setText(getResources().getString(R.string.smoothie_1));
+                    imageView.setBackground(getResources().getDrawable(R.drawable.green_smoothie));
+                }
+                break;
+                case 1: {
+                    textView.setText(getResources().getString(R.string.smoothie_2));
+                    imageView.setBackground(getResources().getDrawable(R.drawable.pink_smoothie));
+                }
+                break;
+                case 2: {
+                    textView.setText(getResources().getString(R.string.smoothie_3));
+                    imageView.setBackground(getResources().getDrawable(R.drawable.purple_smoothie));
+                }
+                break;
+                default:
+                    textView.setText("");
+                    break;
+            }
+        }
+    }
+
+    public void update_liquid_text(TextView textView) {
+
+        if (textView != null) {
+            switch (CurrentSelection.getInstance().getCurrentLiquid()) {
+                case 0: {
+                    textView.setText(getResources().getString(R.string.liquid_1));
+                }
+                break;
+                case 1: {
+                    textView.setText(getResources().getString(R.string.liquid_2));
+                }
+                break;
+                case 2: {
+                    textView.setText(getResources().getString(R.string.liquid_3));
+                }
+                break;
+                default:
+                    textView.setText("");
+                    break;
+            }
+        }
+    }
+
+    public void update_supplement_text(TextView textView) {
+        if (textView != null) {
+            switch (CurrentSelection.getInstance().getCurrentSupplement()) {
+                case 1: {
+                    textView.setText(getResources().getString(R.string.supplement_1));
+                }
+                break;
+                case 2: {
+                    textView.setText(getResources().getString(R.string.supplement_2));
+                }
+                break;
+                case 3: {
+                    textView.setText(getResources().getString(R.string.supplement_3));
+                }
+                break;
+                case 4: {
+                    textView.setText(getResources().getString(R.string.supplement_4));
+                }
+                break;
+                default:
+                    textView.setText("");
+                    break;
+            }
+        }
     }
 
     public void refresh_curr_frag() {
@@ -45,6 +169,10 @@ public class PurchaseSmoothie extends AppCompatActivity {
         m_uGoViewPage.setAdapter(null);
         m_uGoViewPage.setAdapter(mSmoothiePagerAdapter);
         m_uGoViewPage.setCurrentItem(currentItem);
+    }
+
+    public void refresh_text() {
+
     }
 
     public void refresh(){

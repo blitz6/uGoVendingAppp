@@ -67,8 +67,8 @@ public class SupplementSelectionFragment extends Fragment {
         RelativeLayout supplement_h = (RelativeLayout) rootView.findViewById(R.id.hp_tag);
         final TextView selectedSmoothie = (TextView) rootView.findViewById(R.id.element_1_val);
         final ImageView smoothie = (ImageView) rootView.findViewById(R.id.smoothie_tag);
-        final TextView selectedLiquid = (TextView) rootView.findViewById(R.id.element_2_val);
-        final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val);
+        final TextView selectedLiquid = (TextView) rootView.findViewById(R.id.element_2_val_2);
+        final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val_2);
 
 
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
@@ -135,7 +135,7 @@ public class SupplementSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentSupplement(getNo_supplement());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(3);
-                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
+                //((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
         supplement_a.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +143,7 @@ public class SupplementSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentSupplement(getSmashed_almonds());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(3);
-                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
+                //((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
         supplement_p.setOnClickListener(new View.OnClickListener() {
@@ -151,7 +151,7 @@ public class SupplementSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentSupplement(getPumpkin_seed_powder());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(3);
-                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
+                //((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
         supplement_f.setOnClickListener(new View.OnClickListener() {
@@ -159,7 +159,7 @@ public class SupplementSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentSupplement(getGround_flax_seed());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(3);
-                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
+                //((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
         supplement_h.setOnClickListener(new View.OnClickListener() {
@@ -167,11 +167,15 @@ public class SupplementSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentSupplement(getHemp_protein());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(3);
-                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
+                //((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
 
 
         return rootView;
+    }
+
+    public void RefreshText() {
+
     }
 }

@@ -60,7 +60,7 @@ public class LiquidSelectionFragment extends Fragment {
         RelativeLayout liquid_a = (RelativeLayout) rootView.findViewById(R.id.almondmilk_tag);
         final TextView selectedSmoothie = (TextView) rootView.findViewById(R.id.element_1_val);
         final ImageView smoothie = (ImageView) rootView.findViewById(R.id.smoothie_tag);
-        final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val);
+        final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val_1);
 
 
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
@@ -110,7 +110,7 @@ public class LiquidSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentLiquid(getWater());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
-                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
+                //((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
         liquid_c.setOnClickListener(new OnClickListener() {
@@ -118,7 +118,7 @@ public class LiquidSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentLiquid(getCoco_water());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
-                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
+                //((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
         liquid_a.setOnClickListener(new OnClickListener() {
@@ -126,7 +126,7 @@ public class LiquidSelectionFragment extends Fragment {
             public void onClick(View v) {
                 CurrentSelection.getInstance().setCurrentLiquid(getAlmond_milk());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
-                ((PurchaseSmoothie)getActivity()).refresh_curr_frag();
+                //((PurchaseSmoothie)getActivity()).refresh_curr_frag();
             }
         });
 

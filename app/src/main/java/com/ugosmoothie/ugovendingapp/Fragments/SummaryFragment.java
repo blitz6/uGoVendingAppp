@@ -26,9 +26,9 @@ public class SummaryFragment extends Fragment {
         final Button ref =  (Button) rootView.findViewById(R.id.refresh_tag);
         final TextView selectedSmoothie = (TextView) rootView.findViewById(R.id.element_1_val);
         final ImageView smoothie = (ImageView) rootView.findViewById(R.id.smoothie_tag);
-        final TextView selectedLiquid = (TextView) rootView.findViewById(R.id.element_2_val);
-        final TextView selectedSupplement = (TextView) rootView.findViewById(R.id.element_3_val);
-        final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val);
+        final TextView selectedLiquid = (TextView) rootView.findViewById(R.id.element_2_val_3);
+        final TextView selectedSupplement = (TextView) rootView.findViewById(R.id.element_3_val_3);
+        final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val_3);
 
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
             case 0:{
