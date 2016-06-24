@@ -23,14 +23,7 @@ public class PaymentFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 
-
-//        Button button = (Button) rootView.findViewById(R.id.emulatePaymentbutton);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                completeTransaction();
-//            }
-//        });
+               //completeTransaction();
 
         return null;
     }
@@ -49,6 +42,8 @@ public class PaymentFragment extends Fragment {
         // send the purchase to any listening clients
         AsyncServer.getInstance().SendMessage(purchase.toJSONObject());
 
-        ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(0);
+
+      //      ((PurchaseSmoothie) getActivity()).refresh();
+
     }
 }

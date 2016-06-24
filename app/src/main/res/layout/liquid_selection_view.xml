@@ -178,10 +178,19 @@ android:weightSum="1">
             android:text="@string/element_1_val"
             android:textSize="15sp"
             android:id="@+id/element_1_val"
-            android:gravity="center_vertical|center"
+            android:gravity="center"
             android:layout_marginLeft="240dp"
             android:layout_marginTop="80dp"
             android:editable="true" />
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:id="@+id/smoothie_switch"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="80dp"
+            android:background="#00FFFFFF"
+            android:clickable="true" />
         <TextView
             android:layout_width="100dp"
             android:layout_height="80dp"
@@ -191,7 +200,7 @@ android:weightSum="1">
             android:id="@+id/element_2_val_1"
             android:layout_marginLeft="345dp"
             android:layout_marginTop="80dp"
-            android:gravity="center_vertical|left"
+            android:gravity="center"
             android:editable="true" />
         <TextView
             android:layout_width="135dp"
@@ -200,7 +209,7 @@ android:weightSum="1">
             android:text="@string/element_3_val"
             android:id="@+id/element_3_val_1"
             android:textSize="15sp"
-            android:gravity="center_vertical|center"
+            android:gravity="center"
             android:layout_marginLeft="447dp"
             android:layout_marginTop="80dp"
             android:editable="true" />
@@ -253,5 +262,6 @@ android:weightSum="1">
         android:layout_gravity="right|top"
         android:textSize="25sp"
         android:clickable="true" />
+
 
 </LinearLayout>

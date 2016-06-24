@@ -10,17 +10,17 @@
 <!--Layout: Purchase Details-->
     <RelativeLayout
         android:layout_width="950dp"
-        android:layout_height="210dp"
+        android:layout_height="250dp"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="-10dp"
-        android:layout_marginTop="45dp">
+        android:layout_marginTop="20dp">
 
         <ImageView
             android:layout_width="100dp"
             android:layout_height="200dp"
             android:id="@+id/smoothie_tag"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/green_smoothie"
             android:layout_gravity="bottom" />
 
@@ -32,7 +32,7 @@
             android:layout_alignParentStart="false"
             android:textStyle="bold"
             android:layout_marginLeft="200dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="70dp"
             android:textSize="22sp"
             android:layout_marginBottom="10dp" />
 
@@ -42,7 +42,7 @@
             android:text="@string/element_2"
             android:id="@+id/element_2"
             android:textStyle="bold"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="70dp"
             android:textSize="22sp"
             android:layout_marginLeft="350dp" />
 
@@ -52,7 +52,7 @@
             android:text="@string/element_3"
             android:id="@+id/element_3"
             android:textStyle="bold"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="70dp"
             android:textSize="22sp"
             android:layout_marginLeft="460dp" />
 
@@ -63,7 +63,7 @@
             android:id="@+id/element_4"
             android:layout_alignParentEnd="false"
             android:textStyle="bold"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="70dp"
             android:textSize="22sp"
             android:layout_marginLeft="680dp" />
 
@@ -75,7 +75,7 @@
             android:textSize="18dp"
             android:id="@+id/element_1_val"
             android:layout_marginLeft="168dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="110dp"
             android:gravity="center_vertical|center" />
         <TextView
             android:layout_width="140dp"
@@ -85,7 +85,7 @@
             android:textSize="18dp"
             android:id="@+id/element_2_val_3"
             android:layout_marginLeft="315dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="110dp"
             android:gravity="center_vertical|center" />
         <TextView
             android:layout_width="135dp"
@@ -95,7 +95,7 @@
             android:textSize="18dp"
             android:id="@+id/element_3_val_3"
             android:layout_marginLeft="465dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="110dp"
             android:gravity="center_vertical|center" />
         <TextView
             android:layout_width="135dp"
@@ -105,7 +105,7 @@
             android:textSize="18dp"
             android:id="@+id/element_4_val_3"
             android:layout_marginLeft="640dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="110dp"
             android:gravity="center_vertical|center" />
 
     </RelativeLayout>
@@ -119,9 +119,10 @@
         android:id="@+id/payment_instruction"
         android:layout_gravity="top"
         android:textStyle="bold"
-        android:layout_marginLeft="-730dp"
+        android:layout_marginLeft="-750dp"
         android:layout_marginTop="80dp"
-        android:textSize="40sp"
+        android:typeface="serif"
+        android:textSize="37sp"
         android:gravity="center_horizontal" />
 
 <!--Button: Language-->
@@ -132,7 +133,7 @@
         android:text="@string/lingual"
         android:id="@+id/lingual_tag"
         android:layout_marginTop="2dp"
-        android:layout_marginLeft="-17dp"
+        android:layout_marginLeft="0dp"
         android:layout_gravity="right|top"
         android:background="#00ffffff"
         android:textSize="25sp"
@@ -145,7 +146,7 @@
         android:layout_height="80dp"
         android:id="@+id/previous_tag"
         android:layout_gravity="left|top"
-        android:layout_marginLeft="-815dp"
+        android:layout_marginLeft="-795dp"
         android:layout_marginTop="10dp"
         android:background="#00ffffff"
         android:textSize="10sp"
@@ -162,5 +163,14 @@
         android:layout_marginTop="10dp"
         android:background="#00ffffff"
         android:clickable="true" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="400dp"
+        android:background="@android:color/holo_green_dark"
+        android:text="@string/confirm_order"
+        android:id="@+id/confirm_tag" />
 
 </LinearLayout>

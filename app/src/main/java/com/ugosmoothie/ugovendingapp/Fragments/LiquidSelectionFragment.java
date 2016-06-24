@@ -61,7 +61,7 @@ public class LiquidSelectionFragment extends Fragment {
         final TextView selectedSmoothie = (TextView) rootView.findViewById(R.id.element_1_val);
         final ImageView smoothie = (ImageView) rootView.findViewById(R.id.smoothie_tag);
         final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val_1);
-
+        final Button smoothie_switch = (Button) rootView.findViewById(R.id.smoothie_switch);
 
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
             case 0:{
@@ -101,6 +101,13 @@ public class LiquidSelectionFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ((PurchaseSmoothie) getActivity()).refresh();
+            }
+        });
+
+        smoothie_switch.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(0);
             }
         });
 

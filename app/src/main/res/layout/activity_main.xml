@@ -1,0 +1,228 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical|center_horizontal|center"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText" >
+
+    <TextView
+        android:id="@+id/viewReceipt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtOrderId"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <Button
+        android:id="@+id/btnBatchClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnInitialization"
+        android:layout_alignBottom="@+id/btnInitialization"
+        android:layout_alignLeft="@+id/btnCompletion"
+        android:layout_alignRight="@+id/viewReceipt"
+        android:text="Batchclose" 
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btnCompletion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnRefund"
+        android:layout_alignBottom="@+id/btnRefund"
+        android:layout_alignParentRight="true"
+        android:text="Completion" 
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btnPurchaseCorrection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnInitialization"
+        android:layout_alignLeft="@+id/btnPurchase"
+        android:text="Void" 
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btnPurchase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnRefund"
+        android:layout_alignParentLeft="true"
+        android:text="Purchase" 
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
+    <Button
+        android:id="@+id/btnRefund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnInitialization"
+        android:layout_toRightOf="@+id/btnVoid"
+        android:layout_toLeftOf="@+id/btnBatchClose"
+        android:maxWidth="150dp"        
+        android:text="Refund" 
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btnPreauth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/btnCompletion"
+        android:layout_alignTop="@+id/btnPurchase"
+        android:text="Preauth" 
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btnForcePost"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnPurchase"
+        android:layout_alignBottom="@+id/btnPurchase"
+        android:layout_toLeftOf="@+id/btnPreauth"
+        android:layout_toRightOf="@+id/btnPurchase"
+        android:maxWidth="150dp"
+        android:layout_weight="1"
+        android:text="ForcePost" 
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btnInitialization"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnPurchaseCorrection"
+        android:layout_alignParentBottom="true"
+        android:text="Initialization" 
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <ToggleButton
+        android:id="@+id/tglTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnPreauth"
+        android:layout_alignRight="@+id/btnBatchClose"
+        android:text="SetTip"
+        android:textOff="Tip Off"
+        android:textOn="Tip On" />
+
+    <ToggleButton
+        android:id="@+id/tglManualEntry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/tglTip"
+		android:layout_toLeftOf="@+id/tglTip"
+        android:layout_toRightOf="@+id/btnUseLast"
+        android:maxWidth="150dp"
+        android:textOff="No Manual"
+        android:textOn="Allow Manual" />
+    
+    <EditText
+        android:id="@id/txtOrderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtAmount"
+        android:layout_alignRight="@+id/viewReceipt"
+        android:minWidth="150dp"
+        android:textAlignment="gravity"
+        tools:ignore="UnusedAttribute" />
+
+    <EditText
+        android:id="@id/txtAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txtTxnNumber"
+        android:layout_alignRight="@+id/viewReceipt"
+        android:inputType="numberDecimal|numberSigned"
+        android:minWidth="150dp"
+        android:text="1.00"
+        android:gravity="right"
+        android:textAlignment="gravity" />
+
+    <EditText
+        android:id="@id/txtTxnNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="150dp"
+        android:layout_above="@+id/txtCustId"
+        android:layout_alignRight="@+id/viewReceipt"
+        android:gravity="right"
+        android:textAlignment="gravity" />
+    
+    <EditText
+        android:id="@id/txtCustId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minWidth="150dp"
+        android:layout_above="@+id/tglTip"
+        android:layout_alignRight="@+id/viewReceipt"
+        android:inputType="text"
+        android:gravity="right"
+        android:textAlignment="gravity" />
+    
+    <TextView
+        android:id="@+id/lblOrderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/txtOrderId"
+        android:layout_alignBottom="@id/txtOrderId"
+        android:layout_alignLeft="@+id/viewReceipt"
+        android:text="Order ID:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+    <TextView
+        android:id="@+id/lblAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/txtAmount"
+        android:layout_alignBottom="@id/txtAmount"
+        android:layout_alignLeft="@+id/viewReceipt"
+        android:text="Amount:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/lblTxnNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/txtTxnNumber"
+        android:layout_alignBottom="@id/txtTxnNumber"
+        android:layout_alignLeft="@+id/viewReceipt"
+        android:text="Txn Number:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/lblCustId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/txtCustId"
+        android:layout_alignBottom="@id/txtCustId"
+        android:layout_alignLeft="@+id/viewReceipt"
+        android:text="Cust Id:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <Button
+        android:id="@+id/btnUseLast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnPurchase"
+        android:layout_alignLeft="@+id/btnPurchase"
+        android:text="Use Last" 
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/btnIndRefund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnRefund"
+        android:layout_toLeftOf="@+id/btnBatchClose"
+        android:layout_toRightOf="@+id/lblTxnNumber"
+        android:text="Ind Refund" />
+    
+</RelativeLayout>

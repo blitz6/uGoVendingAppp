@@ -6,13 +6,23 @@
     android:background="@drawable/recipe_screen"
     android:weightSum="1">
 
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/info_tag"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/info_blue"
+        android:layout_gravity="top"
+        android:clickable="true"/>
+
  <!--Layout for Green Machine -->
     <RelativeLayout
         android:layout_width="220dp"
         android:layout_height="430dp"
         android:layout_gravity="bottom"
         android:layout_marginTop="-50dp"
-        android:layout_marginLeft="35dp"
+        android:layout_marginLeft="-30dp"
         android:clickable="true"
         android:id="@+id/smoothie_g">
 
@@ -22,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="@string/smoothie_1"
             android:id="@+id/smoothie_1"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="40dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
@@ -31,7 +41,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/const_price"
             android:id="@+id/const_price1"
             android:layout_marginTop="40dp"
             android:layout_marginLeft="-100dp"
@@ -43,11 +52,12 @@
     <!--Text: Header-->
     <TextView
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="500dp"
-        android:layout_height="80dp"
+        android:layout_width="460dp"
+        android:layout_height="90dp"
         android:text="@string/smoothie"
         android:id="@+id/textView"
-        android:layout_marginLeft="-70dp"
+        android:layout_marginLeft="-60dp"
+        android:layout_marginTop="-10dp"
         android:textStyle="bold"
         android:gravity="center_horizontal"
         android:textSize="38sp" />
@@ -59,7 +69,7 @@
         android:layout_gravity="bottom"
         android:clickable="true"
         android:layout_marginTop="-50dp"
-        android:layout_marginLeft="-395dp"
+        android:layout_marginLeft="-355dp"
         android:id="@+id/smoothie_t">
 
         <TextView
@@ -67,7 +77,7 @@
             android:layout_height="wrap_content"
             android:text="@string/smoothie_2"
             android:id="@+id/smoothie_2"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
@@ -75,7 +85,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/const_price"
             android:id="@+id/const_price2"
             android:layout_marginTop="40dp"
             android:textSize="20sp"
@@ -99,7 +108,7 @@
             android:layout_height="wrap_content"
             android:text="@string/smoothie_3"
             android:id="@+id/smoothie_3"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="20dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textSize="20sp"
@@ -107,7 +116,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/const_price"
             android:id="@+id/const_price3"
             android:layout_marginTop="40dp"
             android:textSize="20sp"
@@ -122,7 +130,7 @@
         android:text="@string/lingual"
         android:id="@+id/lingual_tag"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="-80dp"
+        android:layout_marginLeft="-85dp"
         android:layout_gravity="right|top"
         android:background="#00ffffff"
         android:textSize="25sp"

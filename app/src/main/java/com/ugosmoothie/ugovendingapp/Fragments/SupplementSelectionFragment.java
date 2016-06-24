@@ -69,6 +69,8 @@ public class SupplementSelectionFragment extends Fragment {
         final ImageView smoothie = (ImageView) rootView.findViewById(R.id.smoothie_tag);
         final TextView selectedLiquid = (TextView) rootView.findViewById(R.id.element_2_val_2);
         final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val_2);
+        final Button smoothie_switch = (Button) rootView.findViewById(R.id.smoothie_switch);
+        final Button liquid_switch = (Button) rootView.findViewById(R.id.liquid_switch);
 
 
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
@@ -126,6 +128,20 @@ public class SupplementSelectionFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 ((PurchaseSmoothie) getActivity()).refresh();
+            }
+        });
+
+        smoothie_switch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(0);
+            }
+        });
+
+        liquid_switch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(1);
             }
         });
 

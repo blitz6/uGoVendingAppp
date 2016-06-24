@@ -9,8 +9,6 @@ import com.ugosmoothie.ugovendingapp.EventTypes;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.List;
-
 /**
  * Created by Michelle on 3/15/2016.
  */
@@ -35,15 +33,15 @@ public class Purchase extends SugarRecord {
         this.Refunded = refunded;
         this.Amount = amount;
         this.completed = false;
-
     }
-
+// What is the point of having the private variables for the the selection out here if we're getting th data from
+// CurrentSelection?
     public JSONObject toJSONObject() {
         JSONObject obj = new JSONObject();
         try {
             obj.put("eventType", EventTypes.SmoothieEvent.Purchase.name());
             obj.put("orderId", this.getId());
-            obj.put    ("smoothieName", CurrentSelection.getInstance().getCurrentSmoothie());
+            obj.put("smoothieName", CurrentSelection.getInstance().getCurrentSmoothie());
             obj.put("liquidName", CurrentSelection.getInstance().getCurrentLiquid());
             obj.put("supplementName", CurrentSelection.getInstance().getCurrentSupplement());
         } catch (JSONException jsonEx) {
@@ -55,5 +53,7 @@ public class Purchase extends SugarRecord {
 
     public void Completed() {
         this.completed = true;
+        //save(); //SA13062016
     }
+
 }

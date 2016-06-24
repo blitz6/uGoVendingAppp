@@ -34,6 +34,23 @@
     <string name="supplement_3">GRAINES DE LIN BROYÉES</string>
     <string name="supplement_4">PROTÉINE DE CHANVRE`</string>
 
-    <string name="payment_instruction">"S'IL COUS PLAIÎT VOIR CLAVIER POUR PAYER"</string>-->
+    <string name="payment_instruction">"S'IL COUS PLAIÎT VOIR CLAVIER POUR PAYER"</string>
+
+    <string name="confirm_order"> CONFIRMER VOTRE COMMANDE?</string>
+
+    <string name="Thank_you">MERCI !! \n SVP VOIRE UN ASSOCIÉ POUR COMPLETER VOTRE PAYMENT </string>
+
+
+  <string name="ingredients_g">
+  ULTRA VERTE \n \n \n le concombre \n "les épinards" \n le céleri \n la menthe \n la banane \n la lime \n le gingembre
+  </string>
+
+  <string name="ingredients_t">
+  PARAIS TROPICAL \n \n \n "l'ananas" \n la fraise \n la mangue \n la banane
+  </string>
+
+  <string name="ingredients_b">
+  AIES PULPEUSES \n \n \n "l'areille" \n la framboise \n la banane \n la mangue \n "les épinards" \n le gingembre \n la menthe
+  </string>
 
 </resources>

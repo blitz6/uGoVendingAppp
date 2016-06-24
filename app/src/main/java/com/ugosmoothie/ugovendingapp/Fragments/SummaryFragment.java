@@ -10,8 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
+import com.ugosmoothie.ugovendingapp.Data.Purchase;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
 import com.ugosmoothie.ugovendingapp.R;
+import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
 
 /**
  * Created by Michelle on 3/14/2016
@@ -20,6 +22,7 @@ public class SummaryFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
+
         View rootView = inflater.inflate(R.layout.summary_view, container, false);
         final Button lang =  (Button) rootView.findViewById(R.id.lingual_tag);
         final Button previous =  (Button) rootView.findViewById(R.id.previous_tag);
@@ -29,6 +32,7 @@ public class SummaryFragment extends Fragment {
         final TextView selectedLiquid = (TextView) rootView.findViewById(R.id.element_2_val_3);
         final TextView selectedSupplement = (TextView) rootView.findViewById(R.id.element_3_val_3);
         final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val_3);
+        final Button confirm_order = (Button) rootView.findViewById(R.id.confirm_tag);
 
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
             case 0:{
@@ -90,6 +94,7 @@ public class SummaryFragment extends Fragment {
 
         totalval.setText("$" + CurrentSelection.getInstance().getTotal());
 
+
         lang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,20 +118,26 @@ public class SummaryFragment extends Fragment {
             }
         });
 
-        /* TODO: Add button */
-//        Button button = (Button) rootView.findViewById(R.id.confirmPurchaseButton);
-//        button.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                confirmPurchase();
-//            }
-//        });
+        confirm_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Purchase purchase = new Purchase(
+                        (long)CurrentSelection.getInstance().getCurrentSmoothie(),
+                        (long)CurrentSelection.getInstance().getCurrentLiquid(),
+                        (long)CurrentSelection.getInstance().getCurrentSupplement(),
+                        false,
+                        CurrentSelection.getInstance().getTotal()
+                );
+                purchase.save();
+
+                // send the purchase to any listening clients
+                AsyncServer.getInstance().SendMessage(purchase.toJSONObject());
+                ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(4);
+            }
+        });
+
 
         return rootView;
     }
 
-    public void confirmPurchase() {
-
-        ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(4);
-    }
 }

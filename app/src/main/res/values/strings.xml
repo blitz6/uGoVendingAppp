@@ -4,11 +4,10 @@
 
   <string name="lingual">FR</string>
 
-  <string name="smoothie">CHOOSE A SMOOTHIE</string>
+  <string name="smoothie">CHOOSE A SMOOTHIE ($5)</string>
   <string name="smoothie_1">GREEN MACHINE</string>
   <string name="smoothie_2">TROPICAL PARADISE</string>
   <string name="smoothie_3">BERRY LICIOUS</string>
-  <string name="const_price">+$5</string>
 
   <string name="element_1">RECIPE</string>
   <string name="element_2">LIQUID</string>
@@ -36,6 +35,22 @@
   <string name="supplement_4">HEMP PROTEIN</string>
 
   <string name="payment_instruction">PLEASE SEE KEYPAD TO PAY</string>
+
+  <string name="confirm_order">CONFIRM ORDER</string>
+
+  <string name="Thank_you">THANK YOU !! \n \n PLEASE SEE ATTENDANT TO PAY</string>
+  
+  <string name="ingredients_g">
+  GREEN MACHINE \n \n \n Cucumber \n Spinach \n Celery \n Mint \n Banana \n Lime \n Ginger
+  </string>
+
+  <string name="ingredients_t">
+  TROPICAL PARADISE \n \n \n Pineapple \n Strawberry \n Mango \n Banana
+  </string>
+
+  <string name="ingredients_b">
+  BERRY LICIOUS \n \n \n Blueberry \n Raspberry \n Banana \n Mango \n Spinach \n Ginger \n Mint
+  </string>
 
 </resources>
 
