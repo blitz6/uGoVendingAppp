@@ -20,6 +20,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".Fragments.InfoFragment"
+            android:theme="@style/AppTheme.CustomTheme">
+        </activity>
+
         <meta-data android:name="DATABASE" android:value="ugo_smoothie.db" />
         <meta-data android:name="VERSION" android:value="2" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
