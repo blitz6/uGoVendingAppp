@@ -56,4 +56,12 @@ public class Purchase extends SugarRecord {
         //save(); //SA13062016
     }
 
+    public String getDisplayString() {
+        String retString;
+
+        retString = "Smoothie: " + String.valueOf(this.SmoothieId) +
+                " Liquid: " + String.valueOf(this.LiquidId) +
+                " Supplement: " + String.valueOf(this.SupplementId);
+        return retString;
+    }
 }
