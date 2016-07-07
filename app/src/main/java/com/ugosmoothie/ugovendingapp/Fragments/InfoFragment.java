@@ -60,16 +60,16 @@ public class InfoFragment extends Fragment {
 
 
 
-        final Button close =  (Button) rootView.findViewById(R.id.close_tag);
+        //final Button close =  (Button) rootView.findViewById(R.id.close_tag);
 
         rootView.getBackground().setAlpha(50);
-
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(0);
-            }
-        });
+//
+//        close.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(0);
+//            }
+//        });
         return rootView;
     }
 }

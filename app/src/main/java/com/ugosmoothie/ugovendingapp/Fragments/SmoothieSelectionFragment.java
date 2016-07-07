@@ -55,53 +55,24 @@ public class SmoothieSelectionFragment extends Fragment {
         final View rootView = inflater.inflate(R.layout.smoothie_selection_view, container, false);
         final Button lang =  (Button) rootView.findViewById(R.id.lingual_tag);
         final Button info = (Button) rootView.findViewById((R.id.info_tag));
+        final Button dismiss_info = (Button) rootView.findViewById((R.id.exit_tag));
         RelativeLayout smoothie_g = (RelativeLayout) rootView.findViewById(R.id.smoothie_g);
         RelativeLayout smoothie_t = (RelativeLayout) rootView.findViewById(R.id.smoothie_t);
         RelativeLayout smoothie_b = (RelativeLayout) rootView.findViewById(R.id.smoothie_b);
-        final LinearLayout smoothie_page = (LinearLayout) rootView.findViewById(R.id.smoothie);
-        final ViewGroup container_pop = (ViewGroup) inflater.inflate(R.layout.info_popup, null);
+        //final LinearLayout smoothie_page = (LinearLayout) rootView.findViewById(R.id.smoothie);
+        final View container_pop = (View)  rootView.findViewById(R.id.smoothieInfo);;
 
         info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-/*                Dialog dialog = new Dialog(SmoothieSelectionFragment.this);
-                dialog.setContentView(R.layout.info_popup);
-                dialog.setCancelable(true);
+                container_pop.setVisibility(View.VISIBLE);
+            }
+        });
 
-                //set up button
-                final Button close =  (Button) rootView.findViewById(R.id.close_tag);
-                close.setOnClickListener(new OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(0);
-                    }
-                });
-                //now that the dialog is set up, it's time to show it
-                dialog.show();*/
-/*
-
-                InfoFragment start_dialog = new InfoFragment(finalInflater);
-                start_dialog.show();
-*/
-
-                //((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(1);
-
-
-/*                popupWindow = new PopupWindow(container, 400, 400, true);
-                popupWindow.showAtLocation(smoothie_page, Gravity.NO_GRAVITY, 500, 500);
-                //InfoFragment info  = new InfoFragment();
-                container_pop.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent motionEvent) {
-                        popupWindow.dismiss();
-                        return true;
-                    }
-
-                });*/
-                //info.onCreate(savedInstanceState);
-               Intent intent = new Intent(getActivity(), InfoFragment.class);
-
-                startActivity(intent);
+        dismiss_info.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                container_pop.setVisibility(View.INVISIBLE);
             }
         });
 

@@ -1,5 +1,6 @@
 package com.ugosmoothie.ugovendingapp;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -10,13 +11,16 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-
+import com.ugosmoothie.ugovendingapp.Admin.AdministratorActivity;
 import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
 import com.ugosmoothie.ugovendingapp.Data.Purchase;
 import com.orm.SugarRecord;
@@ -24,6 +28,9 @@ import com.ugosmoothie.ugovendingapp.Fragments.SupplementSelectionFragment;
 import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 //Moneris Api import
@@ -65,6 +72,7 @@ public class PurchaseSmoothie extends AppCompatActivity {
     private AsyncServer asyncServer;
     private Locale myLocale;
     private Boolean lang_french = true;
+    private int number_of_clicks = 0;
 
     //VARIABLES FOR moneris BEGIN SA03062016
 /*    private final static String TAG = "com.example.EtrinAndroid.MainActivity";
@@ -94,7 +102,18 @@ public class PurchaseSmoothie extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+
         setContentView(R.layout.activity_purchase_smoothie);
+
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_IMMERSIVE);
+
         refresh_curr_frag();
         m_uGoViewPage.setSwipeEnabled(false);
 
@@ -146,11 +165,45 @@ public class PurchaseSmoothie extends AppCompatActivity {
                 }
         );
 
+        // register administrator button
+        Button administrator_button = (Button) findViewById(R.id.admin_button);
+
+        administrator_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                number_of_clicks ++;
+                if (number_of_clicks > 10) {
+                    Intent intent = new Intent(PurchaseSmoothie.this, AdministratorActivity.class);
+                    startActivityForResult(intent, 1);
+                }
+            }
+        });
+
+
+
         // start the AsyncServer
         asyncServer = AsyncServer.getInstance();
         asyncServer.registerListener(this, "complete");
         this.registerReceiver(receiver, new IntentFilter("complete"));
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                String result=data.getStringExtra("result");
+                if (result.equals("quit")) {
+                    finish();
+                    System.exit(0);
+                }
+            }
+            if (resultCode == Activity.RESULT_CANCELED) {
+                //Write your code if there's no result
+            }
+        }
+    }//onActivityResult
+
 
     public void update_smoothie_text_and_image(TextView textView, ImageView imageView) {
         if (textView != null && imageView != null) {
@@ -263,6 +316,17 @@ public class PurchaseSmoothie extends AppCompatActivity {
         }
     };
 
+    private final List blockedKeys = new ArrayList(Arrays.asList(KeyEvent.KEYCODE_VOLUME_DOWN, KeyEvent.KEYCODE_VOLUME_UP));
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (blockedKeys.contains(event.getKeyCode())) {
+            return true;
+        } else {
+            return super.dispatchKeyEvent(event);
+        }
+    }
+
     //Set Language in Locale
     public void setLocal(String language)
     {
@@ -295,6 +359,21 @@ public class PurchaseSmoothie extends AppCompatActivity {
         m_uGoViewPage.setCurrentItem(setItem);
     }
 
+    @Override
+    public void onBackPressed() {
+        // nothing to do here
+        // … really
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if(!hasFocus) {
+            // Close every kind of system dialog
+            Intent closeDialog = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+            sendBroadcast(closeDialog);
+        }
+    }
 
     //moneris API BEGIN SA03062016
 /*
