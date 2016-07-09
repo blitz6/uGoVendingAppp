@@ -9,6 +9,8 @@ import com.ugosmoothie.ugovendingapp.EventTypes;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Date;
+
 /**
  * Created by Michelle on 3/15/2016.
  */
@@ -18,6 +20,7 @@ public class Purchase extends SugarRecord {
     Long LiquidId;
     Long SupplementId;
     float Amount;
+    Date Timestamp;
     boolean Refunded;
 
     @Ignore
@@ -32,6 +35,7 @@ public class Purchase extends SugarRecord {
         this.SupplementId = supplementId;
         this.Refunded = refunded;
         this.Amount = amount;
+        this.Timestamp = new Date();
         this.completed = false;
     }
 // What is the point of having the private variables for the the selection out here if we're getting th data from
