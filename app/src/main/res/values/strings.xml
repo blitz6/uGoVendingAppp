@@ -5,14 +5,14 @@
   <string name="lingual">FR</string>
 
   <string name="smoothie">CHOOSE A SMOOTHIE ($5)</string>
-  <string name="smoothie_1">GREEN MACHINE</string>
-  <string name="smoothie_2">TROPICAL PARADISE</string>
-  <string name="smoothie_3">BERRY LICIOUS</string>
+  <string name="smoothie_1">Green Machine</string>
+  <string name="smoothie_2">Tropical Paradise</string>
+  <string name="smoothie_3">Berry Licious</string>
 
-  <string name="element_1">RECIPE</string>
-  <string name="element_2">LIQUID</string>
-  <string name="element_3">SUPPLEMENT </string>
-  <string name="element_4">TOTAL</string>
+  <string name="element_1">Recipe</string>
+  <string name="element_2">Liquid</string>
+  <string name="element_3">Supplement</string>
+  <string name="element_4">Total</string>
 
   <string name="element_1_val"> </string>
   <string name="element_2_val"> </string>
@@ -20,36 +20,40 @@
   <string name="element_4_val"> </string>
 
   <string name="liquid">CHOOSE A LIQUID</string>
-  <string name="liquid_1">WATER</string>
-  <string name="liquid_2">COCONUT WATER</string>
-  <string name="liquid_3">ALMOND MILK</string>
+  <string name="liquid_1">Water</string>
+  <string name="liquid_2">Coconut Water</string>
+  <string name="liquid_3">Almond Milk</string>
   <string name="floor_price">+$0</string>
   <string name="ceiling_price">+$1</string>
 
+  <string name="ingredients">Ingredients</string>
 
   <string name="supplement">CHOOSE A SUPPLEMENT ($1)</string>
-  <string name="no_supplement">NEXT TIME</string>
-  <string name="supplement_1">SMASHED ALMONDS</string>
-  <string name="supplement_2">PUMPKIN SEED POWDER</string>
-  <string name="supplement_3">GROUND FLAX SEED</string>
-  <string name="supplement_4">HEMP PROTEIN</string>
+  <string name="no_supplement">Next Time</string>
+  <string name="supplement_1">Smashed Almonds</string>
+  <string name="supplement_2">Pumpkin Seed Powder</string>
+  <string name="supplement_3">Ground Flax Seed</string>
+  <string name="supplement_4">Hemp Protein</string>
 
   <string name="payment_instruction">PLEASE SEE KEYPAD TO PAY</string>
 
-  <string name="confirm_order">CONFIRM ORDER</string>
+  <string name="start_over">New Order</string>
 
-  <string name="Thank_you">THANK YOU !! \n \n PLEASE SEE ATTENDANT TO PAY</string>
+  <string name="confirm_order">Confirm Order</string>
+
+  <string name="Thank_you">Thank You !! \n \n Please See Attendant To Pay</string>
   
   <string name="ingredients_g">
-  GREEN MACHINE \n \n \n Cucumber \n Spinach \n Celery \n Mint \n Banana \n Lime \n Ginger
+  <p><b>GREEN MACHINE</b></p> \n \n \n Cucumber \n Spinach \n Celery \n Mint \n Banana \n Lime \n Ginger
   </string>
 
+
   <string name="ingredients_t">
-  TROPICAL PARADISE \n \n \n Pineapple \n Strawberry \n Mango \n Banana
+  <p><b>TROPICAL PARADISE</b></p> \n \n \n Pineapple \n Strawberry \n Mango \n Banana
   </string>
 
   <string name="ingredients_b">
-  BERRY LICIOUS \n \n \n Blueberry \n Raspberry \n Banana \n Mango \n Spinach \n Ginger \n Mint
+  <p><b>BERRY LICIOUS</b></p> \n \n \n Blueberry \n Raspberry \n Banana \n Mango \n Spinach \n Ginger \n Mint
   </string>
 
 </resources>

@@ -10,31 +10,35 @@
         android:theme="@style/AppTheme"
         android:name=".Helpers.AppContext">
         <service android:name=".Helpers.KioskService" android:exported="false"/>
-        <uses-permission android:name="android.permission.GET_TASKS"/>
+
         <activity
+
             android:name=".PurchaseSmoothie"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
         <activity
             android:name=".Admin.AdministratorActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
         <meta-data android:name="DATABASE" android:value="ugo_smoothie.db" />
         <meta-data android:name="VERSION" android:value="2" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.ugosmoothie.ugovendingapp" />
+
     </application>
 
 </manifest>

@@ -18,6 +18,7 @@ import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
 /**
  * Created by Michelle on 3/14/2016
  */
+
 public class SummaryFragment extends Fragment {
 
     @Override
@@ -43,7 +44,7 @@ public class SummaryFragment extends Fragment {
             case 1:{
                 selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_2));
                 smoothie.setBackground(getContext().getResources().getDrawable(R.drawable.pink_smoothie));
-        }
+            }
                 break;
             case 2:{
                 selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_3));
@@ -135,7 +136,6 @@ public class SummaryFragment extends Fragment {
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(4);
             }
         });
-
 
         return rootView;
     }

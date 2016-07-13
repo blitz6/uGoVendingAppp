@@ -10,8 +10,28 @@
         android:gravity="center|top"
         android:text="@string/Thank_you"
         android:layout_marginTop="130dp"
+        android:layout_marginLeft="100dp"
         android:id="@+id/textView2"
         android:textSize="25sp"
         android:typeface="serif"
         android:layout_gravity="center_horizontal" />
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="-180dp"
+        android:layout_marginLeft="80dp"
+        android:background="@drawable/pink_logo"
+        android:id="@+id/imageView" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:id="@+id/start_over_tag"
+        android:text="@string/start_over"
+        android:layout_marginLeft="540dp"
+        android:clickable="true" />
+
+
 </LinearLayout>

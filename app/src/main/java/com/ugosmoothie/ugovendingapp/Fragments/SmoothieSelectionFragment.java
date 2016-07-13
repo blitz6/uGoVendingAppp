@@ -1,39 +1,28 @@
 package com.ugosmoothie.ugovendingapp.Fragments;
 
-import android.app.Activity;
-import android.app.Dialog;
+
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.MarginLayoutParamsCompat;
-import android.util.DisplayMetrics;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import com.ugosmoothie.ugovendingapp.Data.*;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
-import com.ugosmoothie.ugovendingapp.Fragments.InfoFragment;
 import com.ugosmoothie.ugovendingapp.R;
-
 
 /**
  * Created by Michelle on 3/14/2016
  */
+
 public class SmoothieSelectionFragment extends Fragment {
 
     private int green_machine = 0;
     private int tropical_paradise = 1;
     private int berry_licious = 2;
-    private PopupWindow popupWindow;
 
     public int getGreen_machine(){
         return green_machine;
@@ -47,7 +36,6 @@ public class SmoothieSelectionFragment extends Fragment {
         return berry_licious;
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, final Bundle savedInstanceState) {
 
@@ -59,8 +47,7 @@ public class SmoothieSelectionFragment extends Fragment {
         RelativeLayout smoothie_g = (RelativeLayout) rootView.findViewById(R.id.smoothie_g);
         RelativeLayout smoothie_t = (RelativeLayout) rootView.findViewById(R.id.smoothie_t);
         RelativeLayout smoothie_b = (RelativeLayout) rootView.findViewById(R.id.smoothie_b);
-        //final LinearLayout smoothie_page = (LinearLayout) rootView.findViewById(R.id.smoothie);
-        final View container_pop = (View)  rootView.findViewById(R.id.smoothieInfo);;
+        final View container_pop = (View)  rootView.findViewById(R.id.smoothieInfo);
 
         info.setOnClickListener(new OnClickListener() {
             @Override
@@ -105,7 +92,6 @@ public class SmoothieSelectionFragment extends Fragment {
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(1);
             }
         });
-
 
         return rootView;
     }

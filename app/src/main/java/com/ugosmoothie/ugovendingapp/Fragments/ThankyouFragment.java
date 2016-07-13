@@ -6,7 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
 import com.ugosmoothie.ugovendingapp.R;
 
 /**
@@ -19,6 +21,15 @@ public class ThankyouFragment extends Fragment {
 
         inflater = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rootView = inflater.inflate(R.layout.thank_you, container, false);
+
+        final Button new_order =  (Button) rootView.findViewById(R.id.start_over_tag);
+
+        new_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((PurchaseSmoothie) getActivity()).refresh();
+            }
+        });
 
         return rootView;
     }

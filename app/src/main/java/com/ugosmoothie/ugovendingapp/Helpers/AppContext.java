@@ -25,7 +25,6 @@ public class AppContext extends SugarApp {
         startKioskService();  // add this
     }
 
-
     private void startKioskService() { // ... and this method
         startService(new Intent(this, KioskService.class));
     }

@@ -31,7 +31,7 @@
         android:textStyle="bold"
         android:layout_marginLeft="215dp"
         android:layout_marginTop="45dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_marginBottom="10dp" />
 
     <TextView
@@ -41,7 +41,7 @@
         android:id="@+id/element_2"
         android:textStyle="bold"
         android:layout_marginTop="45dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_marginLeft="315dp" />
 
     <TextView
@@ -51,8 +51,8 @@
         android:id="@+id/element_3"
         android:textStyle="bold"
         android:layout_marginTop="45dp"
-        android:textSize="20sp"
-        android:layout_marginLeft="405dp" />
+        android:textSize="18sp"
+        android:layout_marginLeft="415dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -62,7 +62,7 @@
         android:layout_alignParentEnd="false"
         android:textStyle="bold"
         android:layout_marginTop="45dp"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:layout_marginLeft="655dp" />
 
     <TextView
@@ -123,7 +123,7 @@
         android:text="@string/element_4_val"
         android:textSize="15sp"
         android:id="@+id/element_4_val_2"
-        android:layout_marginLeft="615dp"
+        android:layout_marginLeft="610dp"
         android:layout_marginTop="80dp"
         android:gravity="center_vertical|center"
         android:editable="true" />
@@ -142,14 +142,14 @@
         android:clickable="true">
 
         <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
             android:text="@string/no_supplement"
             android:id="@+id/no_supplement"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="50dp"
             android:layout_gravity="center_horizontal"
-            android:textSize="16sp"
-            android:layout_marginLeft="35dp"
+            android:textSize="18sp"
+            android:layout_marginLeft="25dp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -300,7 +300,7 @@
         android:layout_height="80dp"
         android:text="@string/lingual"
         android:id="@+id/lingual_tag"
-        android:layout_marginLeft="555dp"
+        android:layout_marginLeft="545dp"
         android:layout_marginTop="5dp"
         android:layout_gravity="right|top"
         android:background="#00ffffff"

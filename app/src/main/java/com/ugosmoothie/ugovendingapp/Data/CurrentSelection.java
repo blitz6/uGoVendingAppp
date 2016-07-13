@@ -14,12 +14,12 @@ public class CurrentSelection {
     private int currentSmoothieId;
     private int currentLiquidId;
     private int currentSupplementId;
-    private float total;
+    private double total;
     private CurrentSelection() {
         currentSmoothieId = -1;
         currentLiquidId = -1;
         currentSupplementId = -1;
-        total = 0;
+        total = 0.00;
     }
 
     public void setCurrentSmoothie(int smoothie) {
@@ -52,7 +52,7 @@ public class CurrentSelection {
         return this.currentSupplementId;
     }
 
-    public float getTotal() {
+    public double getTotal() {
 
         return this.total;
     }
@@ -73,6 +73,5 @@ public class CurrentSelection {
             total++;
          }
     }
-
 
 }

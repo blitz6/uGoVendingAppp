@@ -19,7 +19,7 @@ public class Purchase extends SugarRecord {
     Long SmoothieId;
     Long LiquidId;
     Long SupplementId;
-    float Amount;
+    double Amount;
     Date Timestamp;
     boolean Refunded;
 
@@ -29,7 +29,7 @@ public class Purchase extends SugarRecord {
     public Purchase() {
     }
 
-    public Purchase(Long smoothieId, Long liquidId, Long supplementId, boolean refunded, float amount) {
+    public Purchase(Long smoothieId, Long liquidId, Long supplementId, boolean refunded, double amount) {
         this.SmoothieId = smoothieId;
         this.LiquidId = liquidId;
         this.SupplementId = supplementId;
@@ -53,7 +53,6 @@ public class Purchase extends SugarRecord {
         }
         return obj;
     }
-
 
     public void Completed() {
         this.completed = true;

@@ -135,9 +135,9 @@ android:weightSum="1">
             android:id="@+id/element_1"
             android:layout_alignParentStart="false"
             android:textStyle="bold"
-            android:layout_marginLeft="255dp"
+            android:layout_marginLeft="260dp"
             android:layout_marginTop="45dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginBottom="10dp" />
 
         <TextView
@@ -147,7 +147,7 @@ android:weightSum="1">
             android:id="@+id/element_2"
             android:textStyle="bold"
             android:layout_marginTop="45dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginLeft="365dp" />
 
         <TextView
@@ -157,8 +157,8 @@ android:weightSum="1">
             android:id="@+id/element_3"
             android:textStyle="bold"
             android:layout_marginTop="45dp"
-            android:textSize="20sp"
-            android:layout_marginLeft="452dp" />
+            android:textSize="18sp"
+            android:layout_marginLeft="460dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -168,7 +168,7 @@ android:weightSum="1">
             android:layout_alignParentEnd="false"
             android:textStyle="bold"
             android:layout_marginTop="45dp"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:layout_marginLeft="700dp" />
 
         <TextView
@@ -189,7 +189,7 @@ android:weightSum="1">
             android:id="@+id/smoothie_switch"
             android:layout_marginLeft="240dp"
             android:layout_marginTop="80dp"
-            android:background="#00FFFFFF"
+            android:background="@color/transparent"
             android:clickable="true" />
         <TextView
             android:layout_width="100dp"
@@ -220,7 +220,7 @@ android:weightSum="1">
             android:text="@string/element_4_val"
             android:textSize="15sp"
             android:id="@+id/element_4_val_1"
-            android:layout_marginLeft="660dp"
+            android:layout_marginLeft="655dp"
             android:layout_marginTop="80dp"
             android:gravity="center_vertical|center"
             android:editable="true" />
@@ -236,7 +236,7 @@ android:weightSum="1">
         android:layout_gravity="left|top"
         android:layout_marginLeft="-910dp"
         android:layout_marginTop="5dp"
-        android:background="#00ffffff"
+        android:background="@color/transparent"
         android:clickable="true" />
 <!--Button: Refresh-->
     <Button
@@ -247,7 +247,7 @@ android:weightSum="1">
         android:layout_gravity="left|top"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
-        android:background="#00ffffff"
+        android:background="@color/transparent"
         android:clickable="true" />
 <!--Button: Language-->
     <Button
@@ -256,9 +256,9 @@ android:weightSum="1">
         android:layout_height="80dp"
         android:text="@string/lingual"
         android:id="@+id/lingual_tag"
-        android:layout_marginLeft="565dp"
+        android:layout_marginLeft="545dp"
         android:layout_marginTop="5dp"
-        android:background="#00ffffff"
+        android:background="@color/transparent"
         android:layout_gravity="right|top"
         android:textSize="25sp"
         android:clickable="true" />

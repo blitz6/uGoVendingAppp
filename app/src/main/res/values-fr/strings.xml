@@ -4,15 +4,14 @@
 <string name="lingual">EN</string>
 
     <string name="smoothie">SVP CHOISIR UNE RECETTE</string>
-    <string name="smoothie_1">ULTRA VERTE</string>
-    <string name="smoothie_2">PARAIS TROPICAL</string>
-    <string name="smoothie_3">AIES PULPEUSES</string>
-    <string name="const_price">+$5</string>
+    <string name="smoothie_1">Ultra Verte</string>
+    <string name="smoothie_2">Parais Tropical</string>
+    <string name="smoothie_3">Aies Pulpeuses</string>
 
-    <string name="element_1">RECETTE</string>
-    <string name="element_2">LIQUIDE</string>
-    <string name="element_3">SUPPLÉMENT</string>
-    <string name="element_4">TOTAL</string>
+    <string name="element_1">Recette</string>
+    <string name="element_2">Liquide</string>
+    <string name="element_3">Supplément</string>
+    <string name="element_4">Total</string>
 
     <string name="element_1_val"> </string>
     <string name="element_2_val"> </string>
@@ -20,37 +19,37 @@
     <string name="element_4_val"> </string>
 
     <string name="liquid">CHOISIR VOTRE LIQUIDE</string>
-    <string name="liquid_1">EAU</string>
-    <string name="liquid_2">EAU DE NOIX DE COCO</string>
-    <string name="liquid_3">"LAIT D'AMANDE"</string>
+    <string name="liquid_1">Eau</string>
+    <string name="liquid_2">Eau De Noix De Coco</string>
+    <string name="liquid_3">"Lait D'amande"</string>
     <string name="floor_price">+$0</string>
     <string name="ceiling_price">+$1</string>
 
 
     <string name="supplement">CHOISISSEZ UN SUPPLÉMENT ($1)</string>
-    <string name="no_supplement">"PAS POUR L'ISNTANT"</string>
-    <string name="supplement_1">AMANDES FRACASSE MAISON</string>
-    <string name="supplement_2">POUDRE DE GRAINE DE CITROUILLE</string>
-    <string name="supplement_3">GRAINES DE LIN BROYÉES</string>
-    <string name="supplement_4">PROTÉINE DE CHANVRE`</string>
+    <string name="no_supplement">"Pas Pour L'isntant"</string>
+    <string name="supplement_1">Amandes Fracasse Maison</string>
+    <string name="supplement_2">Poudre De Graine De Citrouille</string>
+    <string name="supplement_3">Graines De Lin Broyées</string>
+    <string name="supplement_4">Protéine De Chanvré</string>
 
     <string name="payment_instruction">"S'IL COUS PLAIÎT VOIR CLAVIER POUR PAYER"</string>
 
-    <string name="confirm_order"> CONFIRMER VOTRE COMMANDE?</string>
+    <string name="confirm_order"> Confirmer Votre Commande?</string>
 
-    <string name="Thank_you">MERCI !! \n SVP VOIRE UN ASSOCIÉ POUR COMPLETER VOTRE PAYMENT </string>
+    <string name="Thank_you">MERCI !! \n SVP Voire Un Associé Pour Completer Votre Payment</string>
 
 
   <string name="ingredients_g">
-  ULTRA VERTE \n \n \n le concombre \n "les épinards" \n le céleri \n la menthe \n la banane \n la lime \n le gingembre
+  <b>ULTRA VERTE</b> \n \n \n LE Concombre \n Les Épinards \n Le Céleri \n La Menthe \n La Banane \n La Lime \n Le Gingembre
   </string>
 
   <string name="ingredients_t">
-  PARAIS TROPICAL \n \n \n "l'ananas" \n la fraise \n la mangue \n la banane
+  <b>PARAIS TROPICAL</b> \n \n \n "L'Ananas" \n La Fraise \n La Mangue \n La Banane
   </string>
 
   <string name="ingredients_b">
-  AIES PULPEUSES \n \n \n "l'areille" \n la framboise \n la banane \n la mangue \n "les épinards" \n le gingembre \n la menthe
+  <b>AIES PULPEUSES</b> \n \n \n "L'Areille" \n La Framboise \n La Banane \n La Mangue \n Les Épinards \n Le Gingembre \n La Menthe
   </string>
 
 </resources>
