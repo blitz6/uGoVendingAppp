@@ -54,7 +54,7 @@
             android:textStyle="bold"
             android:layout_marginTop="70dp"
             android:textSize="22sp"
-            android:layout_marginLeft="460dp" />
+            android:layout_marginLeft="470dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -166,10 +166,11 @@
 
     <Button
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:layout_marginLeft="200dp"
         android:layout_marginTop="430dp"
-        android:background="@drawable/button_gradient"
+        android:background="@drawable/buttonshape"
+        android:alpha="0.9"
         android:text="@string/confirm_order"
         android:id="@+id/confirm_tag" />
 

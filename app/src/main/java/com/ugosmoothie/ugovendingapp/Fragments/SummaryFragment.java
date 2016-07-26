@@ -1,5 +1,8 @@
 package com.ugosmoothie.ugovendingapp.Fragments;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,9 +11,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
 import com.ugosmoothie.ugovendingapp.Data.Purchase;
+import com.ugosmoothie.ugovendingapp.PaymentProcessing;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
 import com.ugosmoothie.ugovendingapp.R;
 import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
@@ -106,7 +111,7 @@ public class SummaryFragment extends Fragment {
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int na = -1;
+                int na = 0;
                 CurrentSelection.getInstance().setCurrentSupplement(na);
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(2);
             }
@@ -130,14 +135,15 @@ public class SummaryFragment extends Fragment {
                         CurrentSelection.getInstance().getTotal()
                 );
                 purchase.save();
-
                 // send the purchase to any listening clients
                 AsyncServer.getInstance().SendMessage(purchase.toJSONObject());
                 ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(4);
+               // process a payment.
+                //PaymentProcessing.getInstance().ProcessPaymentRequest(CurrentSelection.getInstance().getTotal());
+
             }
         });
 
         return rootView;
     }
-
 }

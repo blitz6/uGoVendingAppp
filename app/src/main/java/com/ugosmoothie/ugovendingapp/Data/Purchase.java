@@ -67,4 +67,16 @@ public class Purchase extends SugarRecord {
                 " Supplement: " + String.valueOf(this.SupplementId);
         return retString;
     }
+
+    public String getExportString() {
+        String retString;
+
+        retString = "\n" + "OrderId: " + String.valueOf(this.getId()) +
+                "Smoothie: " + String.valueOf(this.SmoothieId) +
+                " Liquid: " + String.valueOf(this.LiquidId) +
+                " Supplement: " + String.valueOf(this.SupplementId) +
+                "Date/Time: " + String.valueOf(this.Timestamp);
+        return retString;
+    }
+
 }

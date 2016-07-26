@@ -101,7 +101,7 @@ public class AdministratorActivity extends AppCompatActivity {
             }
 
             List<Purchase> purchases = Purchase.find(Purchase.class, "Timestamp >= ? and Timestamp <= ?", startDate.getTime() + " ", endDate.getTime() + " ");
-            fos.write("uGoPurchase Log".getBytes());
+            fos.write("uGoPurchase Log \n".getBytes());
             for (Purchase value : purchases) {
                 fos.write(value.getExportString().getBytes());
             }

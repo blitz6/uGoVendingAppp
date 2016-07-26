@@ -55,6 +55,12 @@
   <string name="ingredients_b">
   <p><b>BERRY LICIOUS</b></p> \n \n \n Blueberry \n Raspberry \n Banana \n Mango \n Spinach \n Ginger \n Mint
   </string>
+  admin_date_view
+  <string name="admin_date_view">Enter Start &amp; End Date (YYYY/MM/DD)</string>
+  <string name="start_Date">Start Date</string>
+  <string name="end_Date">End Date</string>
+  <string name="filter">Filter</string>
+
 
 </resources>
 

@@ -75,6 +75,7 @@
         android:layout_height="60dp"
         android:layout_marginTop="480dp"
         android:layout_marginLeft="380dp"
+        android:background="@drawable/buttonshape"
         android:id="@+id/exit_tag"
         android:alpha="0.8"
         android:text="Close" />

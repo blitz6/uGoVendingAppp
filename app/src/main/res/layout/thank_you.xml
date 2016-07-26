@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
@@ -10,7 +11,7 @@
         android:gravity="center|top"
         android:text="@string/Thank_you"
         android:layout_marginTop="130dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginLeft="200dp"
         android:id="@+id/textView2"
         android:textSize="25sp"
         android:typeface="serif"
@@ -30,7 +31,8 @@
         android:layout_height="50dp"
         android:id="@+id/start_over_tag"
         android:text="@string/start_over"
-        android:layout_marginLeft="540dp"
+        android:background="@drawable/buttonshape"
+        android:layout_marginLeft="550dp"
         android:clickable="true" />
 
 
