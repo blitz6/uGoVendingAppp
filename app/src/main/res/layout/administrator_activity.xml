@@ -1,33 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent">
-<TableRow android:layout_height="0dp"
-    android:layout_weight="1">
+    android:layout_height="0dp"
+    android:weightSum="2">
+    <TableRow>
     <ListView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/purchase_listview"
-        android:layout_width="wrap_content"
-        android:layout_height="fill_parent"
+        android:layout_width="700dp"
+        android:layout_weight="1"
+        android:layout_height="500dp"
+        android:layout_marginLeft="20dp"
         android:layout_gravity="bottom|left|top" />
-</TableRow>
-    <TableRow android:layout_height="150dp"
-        android:layout_weight="2">
-        <LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"  >
+
+            <TextView
+          android:layout_width="300dp"
+          android:layout_height="wrap_content"
+          android:text="@string/admin_date_view"
+          android:id="@+id/date_view"
+          android:gravity="center"
+          android:textStyle="bold"
+          android:textSize="20sp"/>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/start_Date"
+                android:id="@+id/start_date"
+                android:gravity="center"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="-300dp"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/start_tag"
+                android:layout_marginLeft="-100dp"
+                android:layout_marginTop="120dp"
+                android:layout_weight="1" />
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/filter_list_tag"
+                android:layout_gravity="center"
+                android:background="@drawable/buttonshape"
+                android:text="@string/filter"
+                android:clickable="true"/>
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/end_Date"
+                android:id="@+id/end_date"
+                android:gravity="center"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+            <EditText
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/end_tag"
+                android:layout_marginLeft="-100dp"
+                android:layout_marginTop="120dp"
+                android:layout_weight="1" />
+
+
     <Button
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:id="@+id/quit_button"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="-300dp"
+        android:background="@drawable/buttonshape"
         android:text="Quit" />
-    <Button
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+
+            <Button
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:id="@+id/export_button"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/buttonshape"
         android:text="Export" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:id="@+id/close_button"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/buttonshape"
         android:text="Close" />
         </LinearLayout>
     </TableRow>

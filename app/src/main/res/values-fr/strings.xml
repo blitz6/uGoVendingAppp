@@ -5,8 +5,8 @@
 
     <string name="smoothie">SVP CHOISIR UNE RECETTE</string>
     <string name="smoothie_1">Ultra Verte</string>
-    <string name="smoothie_2">Parais Tropical</string>
-    <string name="smoothie_3">Aies Pulpeuses</string>
+    <string name="smoothie_2">Paradis Tropical</string>
+    <string name="smoothie_3">Berry-Licious</string>
 
     <string name="element_1">Recette</string>
     <string name="element_2">Liquide</string>
@@ -20,20 +20,20 @@
 
     <string name="liquid">CHOISIR VOTRE LIQUIDE</string>
     <string name="liquid_1">Eau</string>
-    <string name="liquid_2">Eau De Noix De Coco</string>
-    <string name="liquid_3">"Lait D'amande"</string>
+    <string name="liquid_2">Eau de Noix \n de Coco</string>
+    <string name="liquid_3">"Lait d'Amande"</string>
     <string name="floor_price">+$0</string>
     <string name="ceiling_price">+$1</string>
 
 
     <string name="supplement">CHOISISSEZ UN SUPPLÉMENT ($1)</string>
-    <string name="no_supplement">"Pas Pour L'isntant"</string>
+    <string name="no_supplement">"Pas Pour \n l'Instant"</string>
     <string name="supplement_1">Amandes Fracasse Maison</string>
-    <string name="supplement_2">Poudre De Graine De Citrouille</string>
-    <string name="supplement_3">Graines De Lin Broyées</string>
-    <string name="supplement_4">Protéine De Chanvré</string>
+    <string name="supplement_2">Poudre de Graine de Citrouille</string>
+    <string name="supplement_3">Graines de Lin Broyées</string>
+    <string name="supplement_4">Protéine de Chanvré</string>
 
-    <string name="payment_instruction">"S'IL COUS PLAIÎT VOIR CLAVIER POUR PAYER"</string>
+    <string name="payment_instruction">"VOIR LE CLAVIER POUR PAYER S'IL VOUS PLAÎT"</string>
 
     <string name="confirm_order"> Confirmer Votre Commande?</string>
 
@@ -41,15 +41,16 @@
 
 
   <string name="ingredients_g">
-  <b>ULTRA VERTE</b> \n \n \n LE Concombre \n Les Épinards \n Le Céleri \n La Menthe \n La Banane \n La Lime \n Le Gingembre
+  <b>ULTRA VERTE</b> \n \n \n Concombre \n Épinards \n Céleri \n Menthe \n Banane \n Lime \n Gingembre
   </string>
 
   <string name="ingredients_t">
-  <b>PARAIS TROPICAL</b> \n \n \n "L'Ananas" \n La Fraise \n La Mangue \n La Banane
+  <b>PARADIS TROPICAL</b> \n \n Ananas \n Fraise \n Mangue \n Banane
   </string>
 
   <string name="ingredients_b">
-  <b>AIES PULPEUSES</b> \n \n \n "L'Areille" \n La Framboise \n La Banane \n La Mangue \n Les Épinards \n Le Gingembre \n La Menthe
+  <b>BERRY-LICIOUS</b> \n \n \n Areille \n Framboise \n Banane \n Mangue \n Épinards \n Gingembre \n Menthe
   </string>
 
+    <string name="close">FERMER</string>
 </resources>
