@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
@@ -7,213 +8,201 @@
     android:weightSum="1"
     android:orientation="horizontal">
 
-<!--Layout: Purchase Details-->
-<RelativeLayout
-    android:layout_width="950dp"
-    android:layout_height="165dp"
-    android:layout_gravity="bottom"
-    android:layout_marginLeft="10dp">
+    <!--Layout: Purchase Details-->
+    <RelativeLayout
+        android:layout_width="950dp"
+        android:layout_height="165dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp">
 
     <ImageView
+        android:id="@+id/smoothie_tag"
         android:layout_width="85dp"
         android:layout_height="165dp"
-        android:id="@+id/smoothie_tag"
         android:layout_marginLeft="60dp"
         android:background="@drawable/green_smoothie"
         android:layout_gravity="bottom" />
-
     <TextView
+        android:id="@+id/smoothie_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/element_1"
-        android:id="@+id/element_1"
         android:layout_alignParentStart="false"
         android:textStyle="bold"
         android:layout_marginLeft="215dp"
         android:layout_marginTop="45dp"
         android:textSize="18sp"
         android:layout_marginBottom="10dp" />
-
     <TextView
+        android:id="@+id/element_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/element_2"
-        android:id="@+id/element_2"
         android:textStyle="bold"
         android:layout_marginTop="45dp"
         android:textSize="18sp"
         android:layout_marginLeft="315dp" />
-
     <TextView
+        android:id="@+id/element_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/element_3"
-        android:id="@+id/element_3"
         android:textStyle="bold"
         android:layout_marginTop="45dp"
         android:textSize="18sp"
         android:layout_marginLeft="415dp" />
-
     <TextView
+        android:id="@+id/element_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/element_4"
-        android:id="@+id/element_4"
         android:layout_alignParentEnd="false"
         android:textStyle="bold"
         android:layout_marginTop="45dp"
         android:textSize="18sp"
         android:layout_marginLeft="655dp" />
-
     <TextView
+        android:id="@+id/element_1_val"
         android:layout_width="95dp"
         android:layout_height="75dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/element_1_val"
         android:textSize="15sp"
-        android:id="@+id/element_1_val"
         android:layout_marginLeft="200dp"
         android:layout_marginTop="80dp"
         android:gravity="center"
         android:editable="true" />
     <Button
+        android:id="@+id/smoothie_switch"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="95dp"
         android:layout_height="75dp"
-        android:id="@+id/smoothie_switch"
         android:layout_marginLeft="200dp"
         android:layout_marginTop="80dp"
         android:background="#00FFFFFF"
         android:clickable="true" />
     <TextView
+        android:id="@+id/element_2_val_2"
         android:layout_width="95dp"
         android:layout_height="75dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/element_2_val"
         android:textSize="15sp"
-        android:id="@+id/element_2_val_2"
         android:layout_marginLeft="300dp"
         android:layout_marginTop="80dp"
         android:gravity="center"
         android:editable="true" />
     <Button
+        android:id="@+id/liquid_switch"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="95dp"
         android:layout_height="75dp"
-        android:id="@+id/liquid_switch"
         android:layout_marginLeft="300dp"
         android:layout_marginTop="80dp"
         android:background="#00FFFFFF"
         android:clickable="true" />
     <TextView
+        android:id="@+id/element_3_val_2"
         android:layout_width="150dp"
         android:layout_height="75dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/element_3_val"
         android:textSize="15sp"
-        android:id="@+id/element_3_val_2"
         android:gravity="center"
         android:layout_marginLeft="395dp"
         android:layout_marginTop="80dp"
         android:editable="true" />
     <TextView
+        android:id="@+id/element_4_val_2"
         android:layout_width="135dp"
         android:layout_height="80dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="@string/element_4_val"
         android:textSize="15sp"
-        android:id="@+id/element_4_val_2"
         android:layout_marginLeft="610dp"
         android:layout_marginTop="80dp"
         android:gravity="center_vertical|center"
         android:editable="true" />
-
 </RelativeLayout>
 
-<!--Layout for No Supplement -->
+    <!--Layout for No Supplement -->
     <RelativeLayout
+        android:id="@+id/nextTime_tag"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="-85dp"
         android:layout_marginRight="150dp"
         android:layout_marginLeft="-930dp"
-        android:id="@+id/nextTime_tag"
         android:clickable="true">
-
         <TextView
+            android:id="@+id/no_supplement"
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:text="@string/no_supplement"
-            android:id="@+id/no_supplement"
             android:layout_marginTop="50dp"
             android:layout_gravity="center_horizontal"
             android:textSize="18sp"
             android:layout_marginLeft="25dp"
             android:textStyle="bold" />
-
     </RelativeLayout>
 
-<!--Layout for Smashed Almonds-->
+    <!--Layout for Smashed Almonds-->
     <RelativeLayout
+        android:id="@+id/alm_tag"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginTop="-85dp"
         android:layout_marginLeft="-145dp"
-        android:id="@+id/alm_tag"
         android:clickable="true">
-
         <TextView
+            android:id="@+id/supplement_1"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="@string/supplement_1"
-            android:id="@+id/supplement_1"
             android:layout_marginTop="87dp"
             android:layout_gravity="center_vertical|center"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_marginLeft="35dp" />
-
     </RelativeLayout>
 
-<!--Layout for PUMPKIN SEED POWDER -->
+    <!--Layout for PUMPKIN SEED POWDER -->
     <RelativeLayout
+        android:id="@+id/pmkn_tag"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginLeft="05dp"
         android:layout_marginTop="-85dp"
-        android:id="@+id/pmkn_tag"
         android:clickable="true">
-
         <TextView
+            android:id="@+id/supplement_2"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
             android:text="@string/supplement_2"
-            android:id="@+id/supplement_2"
             android:textStyle="bold"
             android:layout_marginTop="85dp"
             android:layout_marginLeft="10dp"
             android:textSize="16sp"
-
             android:gravity="center_horizontal" />
     </RelativeLayout>
 
-<!--Layout for GROUND FLAX SEED -->
+    <!--Layout for GROUND FLAX SEED -->
     <RelativeLayout
+        android:id="@+id/flx_tag"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="-85dp"
-        android:id="@+id/flx_tag"
         android:clickable="true">>
         <TextView
+            android:id="@+id/supplement_3"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:text="@string/supplement_3"
-            android:id="@+id/supplement_3"
             android:textStyle="bold"
             android:layout_alignParentStart="false"
             android:layout_marginTop="88dp"
@@ -227,20 +216,20 @@
             android:gravity="center_horizontal" />
     </RelativeLayout>
 
-<!--Layout for HEMP PROTEIN -->
+    <!--Layout for HEMP PROTEIN -->
     <RelativeLayout
+        android:id="@+id/hp_tag"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_gravity="center"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="-85dp"
-        android:id="@+id/hp_tag"
         android:clickable="true">>
         <TextView
+            android:id="@+id/supplement_4"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="@string/supplement_4"
-            android:id="@+id/supplement_4"
             android:textStyle="bold"
             android:layout_alignParentStart="false"
             android:textSize="16sp"
@@ -252,61 +241,59 @@
             android:layout_alignParentBottom="false"
             android:layout_centerHorizontal="true"
             android:gravity="center_horizontal" />
-
     </RelativeLayout>
 
-<!--Text: Header-->
+    <!--Text: Header-->
     <TextView
+        android:id="@+id/supplement"
         android:layout_width="500dp"
         android:textStyle="bold"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/supplement"
-        android:id="@+id/supplement"
         android:layout_gravity="top"
         android:layout_marginLeft="-640dp"
         android:layout_marginTop="5dp"
         android:textSize="40sp"
         android:gravity="center_horizontal" />
 
-<!--Button: Previous-->
+    <!--Button: Previous-->
     <Button
+        android:id="@+id/previous_tag"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/previous_tag"
         android:layout_gravity="left|top"
         android:layout_marginLeft="-665dp"
         android:layout_marginTop="5dp"
         android:background="#00ffffff"
         android:clickable="true" />
 
-<!--Button: Refresh-->
+    <!--Button: Refresh-->
     <Button
+        android:id="@+id/refresh_tag"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/refresh_tag"
         android:layout_gravity="left|top"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:background="#00ffffff"
         android:clickable="true" />
 
-<!--Button: Language-->
+    <!--Button: Language-->
     <Button
+        android:id="@+id/lingual_tag"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:text="@string/lingual"
-        android:id="@+id/lingual_tag"
         android:layout_marginLeft="545dp"
         android:layout_marginTop="5dp"
         android:layout_gravity="right|top"
         android:background="#00ffffff"
         android:textSize="25sp"
         android:clickable="true" />
-
 </LinearLayout>
 
 

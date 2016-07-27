@@ -1,8 +1,5 @@
 package com.ugosmoothie.ugovendingapp.Fragments;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,11 +8,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
 import com.ugosmoothie.ugovendingapp.Data.Purchase;
-import com.ugosmoothie.ugovendingapp.PaymentProcessing;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
 import com.ugosmoothie.ugovendingapp.R;
 import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
@@ -40,6 +35,7 @@ public class SummaryFragment extends Fragment {
         final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val_3);
         final Button confirm_order = (Button) rootView.findViewById(R.id.confirm_tag);
 
+        //Updates the selected product on Summary bar
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
             case 0:{
                 selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_1));
@@ -100,7 +96,7 @@ public class SummaryFragment extends Fragment {
 
         totalval.setText("$" + CurrentSelection.getInstance().getTotal());
 
-
+        //Language Change
         lang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,6 +104,7 @@ public class SummaryFragment extends Fragment {
             }
         });
 
+        //Previous fragment
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,6 +114,7 @@ public class SummaryFragment extends Fragment {
             }
         });
 
+        //Refresh App
         ref.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,6 +122,7 @@ public class SummaryFragment extends Fragment {
             }
         });
 
+        //Saving the final order into Sugar ORM and sending message to client App
         confirm_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

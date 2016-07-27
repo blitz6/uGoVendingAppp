@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ugosmoothie.ugovendingapp">
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -17,21 +20,10 @@
         android:theme="@style/AppTheme"
         android:name=".Helpers.AppContext">
 
-
-        <service android:name=".Helpers.KioskService" android:exported="false"/>
-        <uses-permission android:name="android.permission.GET_TASKS"/>
-
-        <receiver android:name=".Helpers.BootReceiver">
-            <intent-filter >
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
-
+        <!--Initializing Start Point-->
         <activity
-
             android:name=".PurchaseSmoothie"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -39,15 +31,23 @@
 
         </activity>
 
+        <!--Initializing Kiosk Mode-->
+        <service android:name=".Helpers.KioskService" android:exported="false"/>
+        <uses-permission android:name="android.permission.GET_TASKS"/>
+        <receiver android:name=".Helpers.BootReceiver">
+            <intent-filter >
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+        <!--Initializing Admin Portal-->
         <activity
             android:name=".Admin.AdministratorActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <meta-data android:name="DATABASE" android:value="ugo_smoothie.db" />
@@ -56,5 +56,4 @@
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.ugosmoothie.ugovendingapp" />
 
     </application>
-
 </manifest>

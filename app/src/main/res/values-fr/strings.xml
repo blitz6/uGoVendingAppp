@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">uGoVendingApp</string>
 
-<string name="lingual">EN</string>
+    <string name="lingual">EN</string>
+
+    <string name="ingredients">Ingrédients</string>
 
     <string name="smoothie">SVP CHOISIR UNE RECETTE</string>
     <string name="smoothie_1">Ultra Verte</string>
@@ -25,7 +27,6 @@
     <string name="floor_price">+$0</string>
     <string name="ceiling_price">+$1</string>
 
-
     <string name="supplement">CHOISISSEZ UN SUPPLÉMENT ($1)</string>
     <string name="no_supplement">"Pas Pour \n l'Instant"</string>
     <string name="supplement_1">Amandes Fracasse Maison</string>
@@ -40,17 +41,18 @@
     <string name="Thank_you">MERCI !! \n SVP Voire Un Associé Pour Completer Votre Payment</string>
 
 
-  <string name="ingredients_g">
-  <b>ULTRA VERTE</b> \n \n \n Concombre \n Épinards \n Céleri \n Menthe \n Banane \n Lime \n Gingembre
-  </string>
+    <string name="ingredients_g">
+      <b>ULTRA VERTE</b> \n \n \n Concombre \n Épinards \n Céleri \n Menthe \n Banane \n Lime \n Gingembre
+    </string>
 
-  <string name="ingredients_t">
-  <b>PARADIS TROPICAL</b> \n \n Ananas \n Fraise \n Mangue \n Banane
-  </string>
+    <string name="ingredients_t">
+      <b>PARADIS TROPICAL</b> \n \n Ananas \n Fraise \n Mangue \n Banane
+    </string>
 
-  <string name="ingredients_b">
-  <b>BERRY-LICIOUS</b> \n \n \n Areille \n Framboise \n Banane \n Mangue \n Épinards \n Gingembre \n Menthe
-  </string>
+    <string name="ingredients_b">
+      <b>BERRY-LICIOUS</b> \n \n \n Areille \n Framboise \n Banane \n Mangue \n Épinards \n Gingembre \n Menthe
+    </string>
 
     <string name="close">FERMER</string>
+
 </resources>

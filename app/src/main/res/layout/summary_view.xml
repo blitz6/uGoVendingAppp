@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
@@ -7,7 +8,7 @@
     android:weightSum="1"
     android:orientation="horizontal">
 
-<!--Layout: Purchase Details-->
+    <!--Layout: Purchase Details-->
     <RelativeLayout
         android:layout_width="950dp"
         android:layout_height="250dp"
@@ -16,107 +17,101 @@
         android:layout_marginTop="20dp">
 
         <ImageView
+            android:id="@+id/smoothie_tag"
             android:layout_width="100dp"
             android:layout_height="200dp"
-            android:id="@+id/smoothie_tag"
             android:layout_marginLeft="50dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/green_smoothie"
             android:layout_gravity="bottom" />
-
         <TextView
+            android:id="@+id/element_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/element_1"
-            android:id="@+id/element_1"
             android:layout_alignParentStart="false"
             android:textStyle="bold"
             android:layout_marginLeft="200dp"
             android:layout_marginTop="70dp"
             android:textSize="22sp"
             android:layout_marginBottom="10dp" />
-
         <TextView
+            android:id="@+id/element_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/element_2"
-            android:id="@+id/element_2"
             android:textStyle="bold"
             android:layout_marginTop="70dp"
             android:textSize="22sp"
             android:layout_marginLeft="350dp" />
-
         <TextView
+            android:id="@+id/element_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/element_3"
-            android:id="@+id/element_3"
             android:textStyle="bold"
             android:layout_marginTop="70dp"
             android:textSize="22sp"
             android:layout_marginLeft="470dp" />
-
         <TextView
+            android:id="@+id/element_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/element_4"
-            android:id="@+id/element_4"
             android:layout_alignParentEnd="false"
             android:textStyle="bold"
             android:layout_marginTop="70dp"
             android:textSize="22sp"
             android:layout_marginLeft="680dp" />
-
         <TextView
+            android:id="@+id/element_1_val"
             android:layout_width="140dp"
             android:layout_height="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/element_1_val"
             android:textSize="18dp"
-            android:id="@+id/element_1_val"
             android:layout_marginLeft="168dp"
             android:layout_marginTop="110dp"
             android:gravity="center_vertical|center" />
         <TextView
+            android:id="@+id/element_2_val_3"
             android:layout_width="140dp"
             android:layout_height="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/element_2_val"
             android:textSize="18dp"
-            android:id="@+id/element_2_val_3"
             android:layout_marginLeft="315dp"
             android:layout_marginTop="110dp"
             android:gravity="center_vertical|center" />
         <TextView
+            android:id="@+id/element_3_val_3"
             android:layout_width="135dp"
             android:layout_height="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/element_3_val"
             android:textSize="18dp"
-            android:id="@+id/element_3_val_3"
             android:layout_marginLeft="465dp"
             android:layout_marginTop="110dp"
             android:gravity="center_vertical|center" />
         <TextView
+            android:id="@+id/element_4_val_3"
             android:layout_width="135dp"
             android:layout_height="100dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/element_4_val"
             android:textSize="18dp"
-            android:id="@+id/element_4_val_3"
             android:layout_marginLeft="640dp"
             android:layout_marginTop="110dp"
             android:gravity="center_vertical|center" />
-
     </RelativeLayout>
 
-<!--Header-->
+    <!--Header-->
     <TextView
+        android:id="@+id/payment_instruction"
         android:layout_width="550dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/payment_instruction"
-        android:id="@+id/payment_instruction"
         android:layout_gravity="top"
         android:textStyle="bold"
         android:layout_marginLeft="-750dp"
@@ -125,13 +120,13 @@
         android:textSize="37sp"
         android:gravity="center_horizontal" />
 
-<!--Button: Language-->
+    <!--Button: Language-->
     <Button
+        android:id="@+id/lingual_tag"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:text="@string/lingual"
-        android:id="@+id/lingual_tag"
         android:layout_marginTop="2dp"
         android:layout_marginLeft="-20dp"
         android:layout_gravity="right|top"
@@ -139,12 +134,12 @@
         android:textSize="25sp"
         android:clickable="true" />
 
-<!--Button: Previous-->
+    <!--Button: Previous-->
     <Button
+        android:id="@+id/previous_tag"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/previous_tag"
         android:layout_gravity="left|top"
         android:layout_marginLeft="-795dp"
         android:layout_marginTop="10dp"
@@ -152,18 +147,18 @@
         android:textSize="10sp"
         android:clickable="true" />
 
-<!--Button: Refresh-->
+    <!--Button: Refresh-->
     <Button
+        android:id="@+id/refresh_tag"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/refresh_tag"
         android:layout_gravity="left|top"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="10dp"
         android:background="#00ffffff"
         android:clickable="true" />
-
+    <!--Confirm Order-->
     <Button
         android:layout_width="100dp"
         android:layout_height="80dp"
@@ -173,5 +168,4 @@
         android:alpha="0.9"
         android:text="@string/confirm_order"
         android:id="@+id/confirm_tag" />
-
 </LinearLayout>

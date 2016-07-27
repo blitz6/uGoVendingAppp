@@ -1,6 +1,5 @@
 package com.ugosmoothie.ugovendingapp.Fragments;
 
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -44,11 +43,12 @@ public class SmoothieSelectionFragment extends Fragment {
         final Button lang =  (Button) rootView.findViewById(R.id.lingual_tag);
         final Button info = (Button) rootView.findViewById((R.id.info_tag));
         final Button dismiss_info = (Button) rootView.findViewById((R.id.exit_tag));
+        final View container_pop = (View) rootView.findViewById(R.id.smoothieInfo);
         RelativeLayout smoothie_g = (RelativeLayout) rootView.findViewById(R.id.smoothie_g);
         RelativeLayout smoothie_t = (RelativeLayout) rootView.findViewById(R.id.smoothie_t);
         RelativeLayout smoothie_b = (RelativeLayout) rootView.findViewById(R.id.smoothie_b);
-        final View container_pop = (View)  rootView.findViewById(R.id.smoothieInfo);
 
+        //Initiates ingredients pop-up
         info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,6 +56,7 @@ public class SmoothieSelectionFragment extends Fragment {
             }
         });
 
+        //Closes ingredients pop-up
         dismiss_info.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +64,7 @@ public class SmoothieSelectionFragment extends Fragment {
             }
         });
 
+        //Language Change
         lang.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +72,7 @@ public class SmoothieSelectionFragment extends Fragment {
             }
         });
 
-        //Choosing Smoothie
+        //Smoothie Selection: Save on data on remote cache and move to next fragment
         smoothie_g.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

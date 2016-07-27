@@ -1,117 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:background="@drawable/liquid_screen"
-android:weightSum="1">
 
-<!--Text: Header-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/liquid_screen"
+    android:weightSum="1">
+
+    <!--Text: Header-->
     <TextView
+        android:id="@+id/liquid"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="500dp"
         android:layout_height="wrap_content"
         android:text="@string/liquid"
-        android:id="@+id/liquid"
         android:gravity="center_horizontal"
         android:textSize="40sp"
         android:textStyle="bold"
         android:layout_marginLeft="190dp" />
-<!--Layout for Water -->
+
+    <!--Layout for Water -->
     <RelativeLayout
+        android:id="@+id/water_tag"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginTop="-80dp"
         android:layout_marginLeft="-550dp"
-        android:clickable="true"
-        android:id="@+id/water_tag">
-
+        android:clickable="true">
     <TextView
+        android:id="@+id/liquid_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/liquid_1"
-        android:id="@+id/liquid_1"
         android:layout_marginTop="125dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textSize="20sp"
         android:textStyle="bold" />
     <TextView
+        android:id="@+id/floor_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/floor_price"
-        android:id="@+id/floor_price"
         android:layout_marginTop="165dp"
         android:textSize="20sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
-<!--Layout for Coconut Water -->
-<RelativeLayout
-    android:layout_width="200dp"
-    android:layout_height="200dp"
-    android:layout_gravity="center"
-    android:layout_marginLeft="30dp"
-    android:layout_marginTop="-80dp"
-    android:clickable="true"
-    android:id="@+id/cocowater_tag">
+    <!--Layout for Coconut Water -->
+    <RelativeLayout
+        android:id="@+id/cocowater_tag"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="-80dp"
+        android:clickable="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/liquid_2"
-        android:id="@+id/liquid_2"
-        android:layout_marginTop="125dp"
-        android:textSize="20sp"
-        android:gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ceiling_price"
-        android:id="@+id/ceiling_price1"
-        android:layout_marginTop="165dp"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-</RelativeLayout>
+        <TextView
+            android:id="@+id/liquid_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/liquid_2"
+            android:layout_marginTop="125dp"
+            android:textSize="20sp"
+            android:gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/ceiling_price1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ceiling_price"
+            android:layout_marginTop="165dp"
+            android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
-<!--Layout for Almond Milk -->
-<RelativeLayout
-    android:layout_width="200dp"
-    android:layout_height="200dp"
-    android:layout_gravity="center"
-    android:layout_marginLeft="25dp"
-    android:layout_marginTop="-80dp"
-    android:clickable="true"
-    android:id="@+id/almondmilk_tag">
+    <!--Layout for Almond Milk -->
+    <RelativeLayout
+        android:id="@+id/almondmilk_tag"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="-80dp"
+        android:clickable="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/liquid_3"
-        android:id="@+id/liquid_3"
-        android:layout_marginTop="125dp"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:gravity="center_horizontal"
-        android:layout_centerHorizontal="true"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/ceiling_price"
-        android:id="@+id/ceiling_price2"
-        android:layout_marginTop="165dp"
-        android:textSize="20sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-</RelativeLayout>
+        <TextView
+            android:id="@+id/liquid_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/liquid_3"
+            android:layout_marginTop="125dp"
+            android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/ceiling_price2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ceiling_price"
+            android:layout_marginTop="165dp"
+            android:textSize="20sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
 <!--Layout: Purchase Details-->
     <RelativeLayout
@@ -227,41 +227,39 @@ android:weightSum="1">
 
     </RelativeLayout>
 
-<!--Button: Previous-->
+    <!--Button: Previous-->
     <Button
+        android:id="@+id/previous_tag"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/previous_tag"
         android:layout_gravity="left|top"
         android:layout_marginLeft="-910dp"
         android:layout_marginTop="5dp"
         android:background="@color/transparent"
         android:clickable="true" />
-<!--Button: Refresh-->
+    <!--Button: Refresh-->
     <Button
+        android:id="@+id/refresh_tag"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/refresh_tag"
         android:layout_gravity="left|top"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="5dp"
         android:background="@color/transparent"
         android:clickable="true" />
-<!--Button: Language-->
+    <!--Button: Language-->
     <Button
+        android:id="@+id/lingual_tag"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:text="@string/lingual"
-        android:id="@+id/lingual_tag"
         android:layout_marginLeft="545dp"
         android:layout_marginTop="5dp"
         android:background="@color/transparent"
         android:layout_gravity="right|top"
         android:textSize="25sp"
         android:clickable="true" />
-
-
 </LinearLayout>

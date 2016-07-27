@@ -1,33 +1,24 @@
 package com.ugosmoothie.ugovendingapp.Fragments;
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.orm.SugarRecord;
 import com.ugosmoothie.ugovendingapp.Data.*;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
 import com.ugosmoothie.ugovendingapp.R;
-import com.ugosmoothie.ugovendingapp.SmoothiePagerAdapter;
-import com.ugosmoothie.ugovendingapp.uGoViewPager;
-
-import java.util.Locale;
-
 
 /**
  * Created by Michelle on 3/14/2016
  */
+
 public class SupplementSelectionFragment extends Fragment {
 
     private int no_supplement = 0;
@@ -72,7 +63,7 @@ public class SupplementSelectionFragment extends Fragment {
         final Button smoothie_switch = (Button) rootView.findViewById(R.id.smoothie_switch);
         final Button liquid_switch = (Button) rootView.findViewById(R.id.liquid_switch);
 
-
+        //Updates the selected product on Summary bar
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
             case 0:{
                 selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_1));
@@ -108,6 +99,7 @@ public class SupplementSelectionFragment extends Fragment {
 
         totalval.setText("$" + CurrentSelection.getInstance().getTotal());
 
+        //Language Change
         lang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,6 +107,7 @@ public class SupplementSelectionFragment extends Fragment {
             }
         });
 
+        //Previous fragment
         previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,6 +117,7 @@ public class SupplementSelectionFragment extends Fragment {
             }
         });
 
+        //Refresh App
         ref.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -131,6 +125,7 @@ public class SupplementSelectionFragment extends Fragment {
             }
         });
 
+        //Navigation on Summary bar
         smoothie_switch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -145,7 +140,7 @@ public class SupplementSelectionFragment extends Fragment {
             }
         });
 
-        //Choosing Smoothie
+        //Supplement Selection: Save on data on remote cache and move to next fragment
         supplement_n.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

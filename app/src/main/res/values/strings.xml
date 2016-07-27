@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">uGoVendingApp</string>
 
+  <string name="app_name">uGoVendingApp</string>
 
   <string name="lingual">FR</string>
+
+  <string name="ingredients">Ingredients</string>
 
   <string name="smoothie">CHOOSE A SMOOTHIE ($5)</string>
   <string name="smoothie_1">Green Machine</string>
@@ -26,8 +28,6 @@
   <string name="floor_price">+$0</string>
   <string name="ceiling_price">+$1</string>
 
-  <string name="ingredients">Ingredients</string>
-
   <string name="supplement">CHOOSE A SUPPLEMENT ($1)</string>
   <string name="no_supplement">Next Time</string>
   <string name="supplement_1">Smashed Almonds</string>
@@ -47,7 +47,6 @@
   <p><b>GREEN MACHINE</b></p> \n \n \n Cucumber \n Spinach \n Celery \n Mint \n Banana \n Lime \n Ginger
   </string>
 
-
   <string name="ingredients_t">
   <p><b>TROPICAL PARADISE</b></p> \n \n \n Pineapple \n Strawberry \n Mango \n Banana
   </string>
@@ -55,12 +54,11 @@
   <string name="ingredients_b">
   <p><b>BERRY LICIOUS</b></p> \n \n \n Blueberry \n Raspberry \n Banana \n Mango \n Spinach \n Ginger \n Mint
   </string>
-  admin_date_view
+
   <string name="admin_date_view">Enter Start &amp; End Date (YYYY/MM/DD)</string>
   <string name="start_Date">Start Date</string>
   <string name="end_Date">End Date</string>
   <string name="filter">Filter</string>
-
 
 </resources>
 

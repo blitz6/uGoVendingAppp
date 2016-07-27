@@ -1,6 +1,5 @@
 package com.ugosmoothie.ugovendingapp.Fragments;
 
-
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -56,7 +55,7 @@ public class LiquidSelectionFragment extends Fragment {
         final TextView totalval = (TextView) rootView.findViewById(R.id.element_4_val_1);
         final Button smoothie_switch = (Button) rootView.findViewById(R.id.smoothie_switch);
 
-
+        //Updates the selected product on Summary bar
         switch(CurrentSelection.getInstance().getCurrentSmoothie()) {
             case 0:{
                 selectedSmoothie.setText(getContext().getResources().getString(R.string.smoothie_1));
@@ -77,6 +76,7 @@ public class LiquidSelectionFragment extends Fragment {
 
         totalval.setText("$" + CurrentSelection.getInstance().getTotal());
 
+        //Language Change
         lang.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,6 +84,7 @@ public class LiquidSelectionFragment extends Fragment {
             }
         });
 
+        //Previous fragment
         previous.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +92,7 @@ public class LiquidSelectionFragment extends Fragment {
             }
         });
 
+        //Refresh App
         ref.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +100,7 @@ public class LiquidSelectionFragment extends Fragment {
             }
         });
 
+        //Navigation on Summary bar
         smoothie_switch.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +108,7 @@ public class LiquidSelectionFragment extends Fragment {
             }
         });
 
-        //Choosing Smoothie
+        //Liquid Selection: Save on data on remote cache and move to next fragment
         liquid_w.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

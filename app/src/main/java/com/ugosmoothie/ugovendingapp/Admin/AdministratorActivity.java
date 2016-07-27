@@ -42,6 +42,7 @@ public class AdministratorActivity extends AppCompatActivity {
         final EditText start_Date = (EditText) findViewById((R.id.start_tag));
         final EditText end_Date = (EditText) findViewById((R.id.end_tag));
 
+        //Quit the Admin portal as well as App
         quit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +53,7 @@ public class AdministratorActivity extends AppCompatActivity {
             }
         });
 
+        //Quit the Admin Portal
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,17 +64,7 @@ public class AdministratorActivity extends AppCompatActivity {
             }
         });
 
-        filter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(start_Date.getText() != null && end_Date.getText() != null){
-                    String start = start_Date.getText().toString();
-                    String end = end_Date.getText().toString();
-                    filter_list(start, end);
-                }
-            }
-        });
-
+        //Exporting Data into Internal Memory
         export.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +72,18 @@ public class AdministratorActivity extends AppCompatActivity {
                     String start = start_Date.getText().toString();
                     String end = end_Date.getText().toString();
                     export_list(start, end);
+                }
+            }
+        });
+
+        //Display Previous orders based on set date filter
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(start_Date.getText() != null && end_Date.getText() != null){
+                    String start = start_Date.getText().toString();
+                    String end = end_Date.getText().toString();
+                    filter_list(start, end);
                 }
             }
         });

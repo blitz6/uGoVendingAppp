@@ -32,7 +32,7 @@ public class PaymentFragment extends Fragment {
     }
 
     public void completeTransaction() {
-        // save the purchase to the database
+       /* // save the purchase to the database
         Purchase purchase = new Purchase(
                 (long)CurrentSelection.getInstance().getCurrentSmoothie(),
                 (long)CurrentSelection.getInstance().getCurrentLiquid(),
@@ -44,7 +44,7 @@ public class PaymentFragment extends Fragment {
 
         // send the purchase to any listening clients
         AsyncServer.getInstance().SendMessage(purchase.toJSONObject());
-
+*/
 
       //      ((PurchaseSmoothie) getActivity()).refresh();
 

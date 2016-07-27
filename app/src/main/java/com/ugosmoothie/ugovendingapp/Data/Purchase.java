@@ -38,8 +38,8 @@ public class Purchase extends SugarRecord {
         this.Timestamp = new Date();
         this.completed = false;
     }
-// What is the point of having the private variables for the the selection out here if we're getting th data from
-// CurrentSelection?
+
+    //Sending JSON Object to Client App
     public JSONObject toJSONObject() {
         JSONObject obj = new JSONObject();
         try {
@@ -59,6 +59,7 @@ public class Purchase extends SugarRecord {
         //save(); //SA13062016
     }
 
+    //Format to display previous orders on Admin portal
     public String getDisplayString() {
         String retString;
 
@@ -68,13 +69,14 @@ public class Purchase extends SugarRecord {
         return retString;
     }
 
+    //Format to export previous orders to Internal memory -> Downloads
     public String getExportString() {
         String retString;
 
-        retString = "\n" + "OrderId: " + String.valueOf(this.getId()) +
-                "Smoothie: " + String.valueOf(this.SmoothieId) +
-                " Liquid: " + String.valueOf(this.LiquidId) +
-                " Supplement: " + String.valueOf(this.SupplementId) +
+        retString = "\n" + "OrderId: " + String.valueOf(this.getId()) + ", " +
+                "Smoothie: " + String.valueOf(this.SmoothieId) + ", " +
+                "Liquid: " + String.valueOf(this.LiquidId) + ", " +
+                "Supplement: " + String.valueOf(this.SupplementId) + ", " +
                 "Date/Time: " + String.valueOf(this.Timestamp);
         return retString;
     }

@@ -1,127 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="@drawable/recipe_screen"
-    android:weightSum="1">
 
-    <Button
-        android:layout_width="175dp"
-        android:layout_height="40dp"
-        android:id="@+id/info_tag"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
-        android:textSize="25sp"
-        android:background="@color/transparent"
-        android:text="@string/ingredients"
-        android:layout_gravity="top"
-        android:clickable="true"/>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/recipe_screen"
+        android:weightSum="1">
 
- <!--Layout for Green Machine -->
-    <RelativeLayout
-        android:layout_width="220dp"
-        android:layout_height="430dp"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="-50dp"
-        android:layout_marginLeft="-180dp"
-        android:clickable="true"
-        android:id="@+id/smoothie_g">
+        <Button
+            android:id="@+id/info_tag"
+            android:layout_width="175dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:textSize="25sp"
+            android:background="@color/transparent"
+            android:text="@string/ingredients"
+            android:layout_gravity="top"
+            android:clickable="true"/>
 
+        <!--Layout for Green Machine -->
+        <RelativeLayout
+            android:layout_width="220dp"
+            android:layout_height="430dp"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="-50dp"
+            android:layout_marginLeft="-180dp"
+            android:clickable="true"
+            android:id="@+id/smoothie_g">
+
+            <TextView
+                android:id="@+id/smoothie_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/smoothie_1"
+                android:layout_marginTop="0dp"
+                android:layout_marginLeft="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!--Text: Header-->
         <TextView
+            android:id="@+id/textView"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_width="460dp"
+            android:layout_height="90dp"
+            android:text="@string/smoothie"
+            android:layout_marginLeft="-40dp"
+            android:layout_marginTop="-10dp"
+            android:textStyle="bold"
+            android:gravity="center_horizontal"
+            android:textSize="38sp" />
 
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/smoothie_1"
-            android:id="@+id/smoothie_1"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        <!--Layout for Tropical Paradise -->
+        <RelativeLayout
+            android:id="@+id/smoothie_t"
+            android:layout_width="250dp"
+            android:layout_height="430dp"
+            android:layout_gravity="bottom"
+            android:clickable="true"
+            android:layout_marginTop="-50dp"
+            android:layout_marginLeft="-375dp">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/smoothie_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/smoothie_2"
+                android:layout_marginTop="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-    <!--Text: Header-->
-    <TextView
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="460dp"
-        android:layout_height="90dp"
-        android:text="@string/smoothie"
-        android:id="@+id/textView"
-        android:layout_marginLeft="-40dp"
-        android:layout_marginTop="-10dp"
-        android:textStyle="bold"
-        android:gravity="center_horizontal"
-        android:textSize="38sp" />
+        <!--Layout for Berry Licious -->
+        <RelativeLayout
+            android:id="@+id/smoothie_b"
+            android:layout_width="250dp"
+            android:layout_height="430dp"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="-50dp"
+            android:background="#002d1962"
+            android:clickable="true"
+            android:layout_marginLeft="20dp">
 
-    <!--Layout for Tropical Paradise -->
+            <TextView
+                android:id="@+id/smoothie_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/smoothie_3"
+                android:layout_marginTop="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="250dp"
-        android:layout_height="430dp"
-        android:layout_gravity="bottom"
-        android:clickable="true"
-        android:layout_marginTop="-50dp"
-        android:layout_marginLeft="-375dp"
-        android:id="@+id/smoothie_t">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/smoothie_2"
-            android:id="@+id/smoothie_2"
-            android:layout_marginTop="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
-
-    <!--Layout for Berry Licious -->
-    <RelativeLayout
-        android:layout_width="250dp"
-        android:layout_height="430dp"
-        android:layout_gravity="bottom"
-        android:layout_marginTop="-50dp"
-        android:background="#002d1962"
-        android:clickable="true"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/smoothie_b">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/smoothie_3"
-            android:id="@+id/smoothie_3"
-            android:layout_marginTop="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
-    <!--Button: Language-->
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
-        android:text="@string/lingual"
-        android:id="@+id/lingual_tag"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="-90dp"
-        android:layout_gravity="right|top"
-        android:background="@color/transparent"
-        android:textSize="25sp"
-        android:clickable="true" />
-
-</LinearLayout>
+        <!--Button: Language-->
+        <Button
+            android:id="@+id/lingual_tag"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:text="@string/lingual"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="-90dp"
+            android:layout_gravity="right|top"
+            android:background="@color/transparent"
+            android:textSize="25sp"
+            android:clickable="true" />
+    </LinearLayout>
 
     <include
         android:id="@+id/smoothieInfo"
