@@ -8,10 +8,15 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.hardware.usb.UsbDeviceConnection;
+import android.hardware.usb.UsbManager;
+import android.os.AsyncTask;
+import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -20,15 +25,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hoho.android.usbserial.driver.UsbSerialDriver;
+import com.hoho.android.usbserial.driver.UsbSerialPort;
+import com.hoho.android.usbserial.driver.UsbSerialProber;
+import com.hoho.android.usbserial.util.HexDump;
+import com.hoho.android.usbserial.util.SerialInputOutputManager;
 import com.ugosmoothie.ugovendingapp.Admin.AdministratorActivity;
 import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
 import com.ugosmoothie.ugovendingapp.Data.Purchase;
 import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /*//Import Library for Payment Integration
 import com.payments.core.AndroidTerminal;
@@ -65,7 +78,6 @@ public class PurchaseSmoothie extends AppCompatActivity {
     private Locale myLocale;
     private Boolean lang_french = true;
     private int number_of_clicks = 0;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -163,9 +175,11 @@ public class PurchaseSmoothie extends AppCompatActivity {
 
         //Initializing the Async Server
         asyncServer = AsyncServer.getInstance();
-        asyncServer.registerListener(this, "complete");
+        //asyncServer.registerListener(this, "complete");
         this.registerReceiver(receiver, new IntentFilter("complete"));
         this.registerReceiver(paymentCompleteReceiver, new IntentFilter("paymentComplete"));
+
+
     }
 
     @Override
