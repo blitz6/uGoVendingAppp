@@ -415,14 +415,31 @@ public class PurchaseSmoothie extends AppCompatActivity {
 
             for (int i = 0; i < parsedMessage.length; i = i + 2) {
                 if (parsedMessage[i].equals(FlexPointQSR.FlexPointMessageId.PosResultCode.getValue())) {
-                    if (parsedMessage[i + 1] == "000") {
-                        paymentComplete();
+                    if (parsedMessage[i + 1].equals("000")) {
+                        // payment accepted
+                        View paymentCompleteView = (View)findViewById(R.id.paymentCompleteInfo);
+                        paymentCompleteView.setVisibility(View.VISIBLE);
+
+                        final Button okay_button = (Button) findViewById((R.id.okay_ready_to_start));
+
+                        okay_button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                View paymentCompleteView = (View)findViewById(R.id.paymentCompleteInfo);
+                                paymentCompleteView.setVisibility(View.INVISIBLE);
+                                paymentComplete();
+
+                            }
+                        });
+
                     } else {
+                        // payment declined or error
                         paymentComplete();
                     }
                     break;
                 } else if (parsedMessage[i].equals(FlexPointQSR.FlexPointMessageId.UserCanceled.getValue())) {
                     Toast.makeText(PurchaseSmoothie.this, "canceled", Toast.LENGTH_LONG);
+                    // payment canceled
                     paymentComplete();
                 }
             }

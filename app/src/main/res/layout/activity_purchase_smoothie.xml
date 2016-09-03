@@ -28,6 +28,14 @@
         android:background="@android:color/transparent"
         android:id="@+id/admin_button"/>
 
+    <include
+        android:id="@+id/paymentCompleteInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        layout="@layout/payment_complete_popup"
+        android:visibility="invisible"
+        android:layout_margin="0dp"
+        android:layout_gravity="center" />
 </RelativeLayout>
 
 
