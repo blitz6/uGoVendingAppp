@@ -66,6 +66,11 @@
                 android:layout_height="wrap_content"
                 android:text="Send MOVE_DOWN command"
                 android:id="@+id/move_down_button" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Send TOGGLE PUMP command"
+                android:id="@+id/toggle_pump_button" />
         </LinearLayout>
         </TableRow>
     </TableLayout>

@@ -13,7 +13,6 @@ import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
 import com.ugosmoothie.ugovendingapp.Data.Purchase;
 import com.ugosmoothie.ugovendingapp.PurchaseSmoothie;
 import com.ugosmoothie.ugovendingapp.R;
-import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
 
 /**
  * Created by Michelle on 3/14/2016
@@ -135,8 +134,11 @@ public class SummaryFragment extends Fragment {
                 );
                 purchase.save();
                 // send the purchase to any listening clients
-                AsyncServer.getInstance().SendMessage(purchase.toJSONObject());
-                ((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(4);
+
+
+                //AsyncServer.getInstance().SendMessage(purchase.toJSONObject());
+                //((PurchaseSmoothie) getActivity()).GetUGoViewPager().setCurrentItem(4);
+                ((PurchaseSmoothie) getActivity()).paymentRequest();
                // process a payment.
                 //PaymentProcessing.getInstance().ProcessPaymentRequest(CurrentSelection.getInstance().getTotal());
 

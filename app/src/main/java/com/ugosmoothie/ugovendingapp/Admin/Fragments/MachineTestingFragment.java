@@ -60,6 +60,7 @@ public class MachineTestingFragment extends Fragment {
         final Button clean = (Button) rootView.findViewById((R.id.clean_button));
         final Button initialize = (Button) rootView.findViewById((R.id.initialize_button));
         final Button stop = (Button) rootView.findViewById((R.id.stop_button));
+        final Button togglePump = (Button) rootView.findViewById((R.id.toggle_pump_button));
         final Button moveUp = (Button) rootView.findViewById((R.id.move_up_button));
         final Button moveDown = (Button) rootView.findViewById((R.id.move_down_button));
         loggerTextView = (TextView) rootView.findViewById(R.id.logger);
@@ -108,6 +109,14 @@ public class MachineTestingFragment extends Fragment {
             }
         });
 
+        togglePump.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeMessage("Sending TOGGLE PUMP");
+                ToggleOutputMessage();
+            }
+        });
+
         return rootView;
     }
 
@@ -124,6 +133,13 @@ public class MachineTestingFragment extends Fragment {
         autoCycle[1] = 0;//(byte)CurrentSelection.getInstance().getCurrentLiquid();
         autoCycle[2] = 0;//(byte)CurrentSelection.getInstance().getCurrentSupplement();
         WriteMessageToArduino((short) ArduinoMessageId.AutoCycle.getValue(), autoCycle, (short) autoCycle.length);
+    }
+
+    private void ToggleOutputMessage() {
+        byte toggleOutput[] = new byte[1];
+        toggleOutput[0] = 13; // pin to toggle
+        WriteMessageToArduino((short) ArduinoMessageId.ToggleActuatorState.getValue(), toggleOutput, (short) toggleOutput.length);
+
     }
 
     private void SendCleanCycleMessage() {
@@ -248,6 +264,7 @@ catch(Exception e) {
                             writeMessage("Got the firmware version reply");
                             read = 0;
                             break;
+
                         case AutoCycleReply:
                             writeMessage("Get AutoCycle reply - liquid: " + inBuffer[8] + " protien: " + inBuffer[9]);
                             break;
@@ -350,7 +367,8 @@ catch(Exception e) {
         Sanitize(0x0007),
         log(0x0008),
         Initialize(0x009),
-        Stop(0x00A);
+        Stop(0x00A),
+        ToggleActuatorState(0x000B);
 
         private int value;
 

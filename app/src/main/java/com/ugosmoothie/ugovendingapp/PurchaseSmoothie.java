@@ -1,22 +1,20 @@
 package com.ugosmoothie.ugovendingapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.KeyguardManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.hardware.usb.UsbDeviceConnection;
-import android.hardware.usb.UsbManager;
 import android.os.AsyncTask;
-import android.os.SystemClock;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -24,67 +22,32 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.hoho.android.usbserial.driver.UsbSerialDriver;
-import com.hoho.android.usbserial.driver.UsbSerialPort;
-import com.hoho.android.usbserial.driver.UsbSerialProber;
-import com.hoho.android.usbserial.util.HexDump;
-import com.hoho.android.usbserial.util.SerialInputOutputManager;
 import com.ugosmoothie.ugovendingapp.Admin.AdministratorActivity;
 import com.ugosmoothie.ugovendingapp.Data.CurrentSelection;
 import com.ugosmoothie.ugovendingapp.Data.Purchase;
+import com.ugosmoothie.ugovendingapp.MachineCommunication.Arduino;
+import com.ugosmoothie.ugovendingapp.Pivotal.FlexPointQSR;
 import com.ugosmoothie.ugovendingapp.WebServer.AsyncServer;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
-/*//Import Library for Payment Integration
-import com.payments.core.AndroidTerminal;
-import com.payments.core.CoreAPIListener;
-import com.payments.core.CoreDeviceError;
-import com.payments.core.CoreError;
-import com.payments.core.CoreMessage;
-import com.payments.core.CoreMode;
-import com.payments.core.CoreRefund;
-import com.payments.core.CoreRefundResponse;
-import com.payments.core.CoreSale;
-import com.payments.core.CoreSaleEmv;
-import com.payments.core.CoreSaleKeyed;
-import com.payments.core.CoreSaleResponse;
-import com.payments.core.CoreSaleTrack;
-import com.payments.core.CoreSetting;
-import com.payments.core.CoreSettings;
-import com.payments.core.CoreSignature;
-import com.payments.core.CoreTax;
-import com.payments.core.CoreTerminalUpdate;
-import com.payments.core.CoreTip;
-import com.payments.core.CoreTransactionSummary;
-import com.payments.core.CoreTransactions;
-import com.payments.core.CoreUnreferencedRefund;
-import com.payments.core.CoreUpdate;
-import com.payments.core.DeviceEnum;
-import com.payments.core.TipType;*/
 
 public class PurchaseSmoothie extends AppCompatActivity {
 
-    // test change for reviewable.io
     private uGoViewPager m_uGoViewPage;
     private AsyncServer asyncServer;
     private Locale myLocale;
     private Boolean lang_french = true;
     private int number_of_clicks = 0;
 
+    private Arduino arduino;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Initializing Payment Processing
-        PaymentProcessing.getInstance().Initialize(this.getApplicationContext());
+        arduino = new Arduino(this);
 
         //Initializing Kiosk Mode
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
@@ -307,8 +270,8 @@ public class PurchaseSmoothie extends AppCompatActivity {
             String eventType = intent.getStringExtra("orderId");
             //if (eventType.equals(EventTypes.SmoothieEvent.Complete.getSmoothieEvent())) {
             //we finished a smoothie
-                Toast.makeText(getApplicationContext(), "Your Order is ready!!", Toast.LENGTH_SHORT).show();
-                m_uGoViewPage.setCurrentItem(0);
+            Toast.makeText(getApplicationContext(), "Your Order is ready!!", Toast.LENGTH_SHORT).show();
+            m_uGoViewPage.setCurrentItem(0);
             //}
         }
     };
@@ -364,6 +327,33 @@ public class PurchaseSmoothie extends AppCompatActivity {
         }
     }
 
+    public void paymentComplete() {
+        Purchase purchase = new Purchase(
+                (long)CurrentSelection.getInstance().getCurrentSmoothie(),
+                (long)CurrentSelection.getInstance().getCurrentLiquid(),
+                (long)CurrentSelection.getInstance().getCurrentSupplement(),
+                false,
+                CurrentSelection.getInstance().getTotal()
+        );
+        purchase.save();
+        // send the purchase to any listening clients
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+// Add the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                // User clicked OK button
+                // SEND ARDUINO START
+
+                GetUGoViewPager().setCurrentItem(4);
+                arduino.SendAutoCycleMessage();
+            }
+        });
+        builder.setMessage("Make sure the lid is removed and put the cup in the holder.\nClick OK when ready");
+// Create the AlertDialog
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
     //Saving the final order into Sugar ORM and sending message to client App
     private BroadcastReceiver paymentCompleteReceiver = new BroadcastReceiver() {
         @Override
@@ -377,8 +367,65 @@ public class PurchaseSmoothie extends AppCompatActivity {
             );
             purchase.save();
             // send the purchase to any listening clients
-            AsyncServer.getInstance().SendMessage(purchase.toJSONObject());
-            GetUGoViewPager().setCurrentItem(4);
+            AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+// Add the buttons
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // User clicked OK button
+                    // SEND ARDUINO START
+                }
+            });
+            builder.setMessage("Make sure the lid is removed and put the cup in the holder.\nClick OK when ready");
+// Create the AlertDialog
+            AlertDialog dialog = builder.create();
         }
     };
+
+    FlexPointQSR fpQSR;
+
+    public void paymentRequest() {
+        // connect to the server
+        new connectTask().execute("");
+
+    }
+
+    public class connectTask extends AsyncTask<String,String,FlexPointQSR> {
+
+        @Override
+        protected FlexPointQSR doInBackground(String... message) {
+
+            //we create a TCPClient object and
+            fpQSR = new FlexPointQSR(new FlexPointQSR.OnMessageReceived() {
+                @Override
+                //here the messageReceived method is implemented
+                public void messageReceived(String message) {
+                    //this method calls the onProgressUpdate
+                    publishProgress(message);
+                }
+            });
+            fpQSR.run();
+
+            return null;
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values) {
+            super.onProgressUpdate(values);
+            String[] parsedMessage = values[0].split("\\^");
+
+            for (int i = 0; i < parsedMessage.length; i = i + 2) {
+                if (parsedMessage[i].equals(FlexPointQSR.FlexPointMessageId.PosResultCode.getValue())) {
+                    if (parsedMessage[i + 1] == "000") {
+                        paymentComplete();
+                    } else {
+                        paymentComplete();
+                    }
+                    break;
+                } else if (parsedMessage[i].equals(FlexPointQSR.FlexPointMessageId.UserCanceled.getValue())) {
+                    Toast.makeText(PurchaseSmoothie.this, "canceled", Toast.LENGTH_LONG);
+                    paymentComplete();
+                }
+            }
+        }
+    }
 }

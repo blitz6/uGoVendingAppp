@@ -12,224 +12,286 @@ import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbEndpoint;
 import android.hardware.usb.UsbInterface;
 import android.hardware.usb.UsbManager;
+import android.os.AsyncTask;
+import android.os.SystemClock;
 import android.util.Log;
 
+import com.hoho.android.usbserial.driver.UsbSerialDriver;
+import com.hoho.android.usbserial.driver.UsbSerialPort;
+import com.hoho.android.usbserial.driver.UsbSerialProber;
+import com.hoho.android.usbserial.util.HexDump;
+import com.hoho.android.usbserial.util.SerialInputOutputManager;
+
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by Michelle on 8/13/2016.
  */
 public class Arduino {
-    private final Context mApplicationContext;
-    private final UsbManager mUsbManager;
-    private final IArduinoHandler mConnectionHandler;
-    private final int VID;
-    private final int PID;
-    protected static final String ACTION_USB_PERMISSION = "com.ugosmoothie.ugovendingapp.USB";
+    private static UsbSerialPort sPort = null;
+    private UsbManager mUsbManager;
+    private final ExecutorService mExecutor = Executors.newSingleThreadExecutor();
+    private SerialInputOutputManager mSerialIoManager;
 
-    public Arduino(Activity parentActivity,
-                   IArduinoHandler connectionHandler, int vid, int pid) {
-        mApplicationContext = parentActivity.getApplicationContext();
-        mConnectionHandler = connectionHandler;
-        mUsbManager = (UsbManager) mApplicationContext
-                .getSystemService(Context.USB_SERVICE);
-        VID = vid;
-        PID = pid;
-        init();
+    private final long StartOfMessage = 0x557E;
+    private final long EndOfMessage = 0x557F;
+
+    private Activity activity;
+
+    public Arduino(Activity activity) {
+        this.activity = activity;
     }
 
-    private void init() {
-        enumerate(new IPermissionListener() {
-            @Override
-            public void onPermissionDenied(UsbDevice d) {
-                UsbManager usbman = (UsbManager) mApplicationContext
-                        .getSystemService(Context.USB_SERVICE);
-                PendingIntent pi = PendingIntent.getBroadcast(
-                        mApplicationContext, 0, new Intent(
-                                ACTION_USB_PERMISSION), 0);
-                mApplicationContext.registerReceiver(mPermissionReceiver,
-                        new IntentFilter(ACTION_USB_PERMISSION));
-                usbman.requestPermission(d, pi);
-            }
-        });
-    }
+    private final SerialInputOutputManager.Listener mListener =
+            new SerialInputOutputManager.Listener() {
 
-    public void stop() {
-        mStop = true;
-        synchronized (sSendLock) {
-            sSendLock.notify();
-        }
-        try {
-            if(mUsbThread != null)
-                mUsbThread.join();
-        } catch (InterruptedException e) {
-            e(e);
-        }
-        mStop = false;
-        mLoop = null;
-        mUsbThread = null;
+                @Override
+                public void onRunError(Exception e) {
 
-        try{
-            mApplicationContext.unregisterReceiver(mPermissionReceiver);
-        }catch(IllegalArgumentException e){};//bravo
-    }
-    private UsbRunnable mLoop;
-    private Thread mUsbThread;
-
-    private void startHandler(UsbDevice d) {
-        if (mLoop != null) {
-            mConnectionHandler.onErrorLooperRunningAlready();
-            return;
-        }
-        mLoop = new UsbRunnable(d);
-        mUsbThread = new Thread(mLoop);
-        mUsbThread.start();
-    }
-
-    public void send(byte data) {
-        mData = data;
-        synchronized (sSendLock) {
-            sSendLock.notify();
-        }
-    }
-
-    private void enumerate(IPermissionListener listener) {
-        l("enumerating");
-        HashMap<String, UsbDevice> devlist = mUsbManager.getDeviceList();
-        Iterator<UsbDevice> deviter = devlist.values().iterator();
-        while (deviter.hasNext()) {
-            UsbDevice d = deviter.next();
-            l("Found device: "
-                    + String.format("%04X:%04X", d.getVendorId(),
-                    d.getProductId()));
-            if (d.getVendorId() == VID && d.getProductId() == PID) {
-                l("Device under: " + d.getDeviceName());
-                if (!mUsbManager.hasPermission(d))
-                    listener.onPermissionDenied(d);
-                else{
-                    startHandler(d);
-                    return;
                 }
-                break;
-            }
-        }
-        l("no more devices found");
-        mConnectionHandler.onDeviceNotFound();
-    }
 
-    private class PermissionReceiver extends BroadcastReceiver {
-        private final IPermissionListener mPermissionListener;
-
-        public PermissionReceiver(IPermissionListener permissionListener) {
-            mPermissionListener = permissionListener;
-        }
-
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            mApplicationContext.unregisterReceiver(this);
-            if (intent.getAction().equals(ACTION_USB_PERMISSION)) {
-                if (!intent.getBooleanExtra(
-                        UsbManager.EXTRA_PERMISSION_GRANTED, false)) {
-                    mPermissionListener.onPermissionDenied((UsbDevice) intent
-                            .getParcelableExtra(UsbManager.EXTRA_DEVICE));
-                } else {
-                    l("Permission granted");
-                    UsbDevice dev = (UsbDevice) intent
-                            .getParcelableExtra(UsbManager.EXTRA_DEVICE);
-                    if (dev != null) {
-                        if (dev.getVendorId() == VID
-                                && dev.getProductId() == PID) {
-                            startHandler(dev);// has new thread
+                @Override
+                public void onNewData(final byte[] data) {
+                    activity.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            updateReceivedData(data);
                         }
-                    } else {
-                        e("device not present!");
-                    }
+                    });
+                }
+            };
+
+    private void stopIoManager() {
+        if (mSerialIoManager != null) {
+            mSerialIoManager.stop();
+            mSerialIoManager = null;
+        }
+    }
+
+    private void startIoManager() {
+        if (sPort != null) {
+            mSerialIoManager = new SerialInputOutputManager(sPort, mListener);
+            mExecutor.submit(mSerialIoManager);
+        }
+    }
+
+    private void onDeviceStateChange() {
+        stopIoManager();
+        startIoManager();
+    }
+
+    private byte[] inBuffer = new byte[255];
+    private int read = 0;
+
+    private void updateReceivedData(byte[] data) {
+        final String message = "Read " + data.length + " bytes: \n"
+                + HexDump.dumpHexString(data) + "\n\n";
+        // read it to in buffer
+        for (int i = 0; i < data.length; i++) {
+            inBuffer[read++]= data[i];
+        }
+
+        try {
+            checkForCompleteMessage();
+        }
+        catch(Exception e) {
+        }
+        //mDumpTextView.append(message);
+        //mScrollView.smoothScrollTo(0, mDumpTextView.getBottom());
+    }
+
+    private final int MinimumPacketSize = 12;
+
+    private void checkForCompleteMessage() {
+        for (int i = 0; i < read;i++) {
+            // check for start
+            if (inBuffer[i] == 0x7E) {
+                // possible message start
+                if (read - i > 1) {
+                    if (inBuffer[i + 1] == 0x55)
+                        System.arraycopy(inBuffer, i, inBuffer, 0, read - i);
+                    read = read - i;
                 }
             }
         }
+        if (read >= MinimumPacketSize) { // 12 is the minimum message size
+            long sof = (inBuffer[1] << 8) + inBuffer[0];
 
+            if (sof == StartOfMessage) {
+                // valid message, good start
+                int messageLength = ((inBuffer[3] << 8) & 0xFF) + (inBuffer[2] & 0xFF);
+                // TODO: check CRC16 to make sure pack valid
+                if (read > messageLength) {
+                    // print entire in buffer
+                    int messageIntId = ((inBuffer[7] << 8) + inBuffer[6]);
+                    ArduinoMessageId messageId = ArduinoMessageId.find(messageIntId);
+                    switch (messageId) {
+                        case GetFirmwareVersionReply:
+                            read = 0;
+                            break;
+
+                        case AutoCycleReply:
+                            break;
+                        case Heartbeat:
+                            break;
+                        case log:
+                            byte[] messageToPrint = new byte[messageLength - 12];
+                            System.arraycopy(inBuffer, 8, messageToPrint, 0, messageLength - 13);
+                            String print = new String(messageToPrint);
+                            break;
+                        default:
+                            break;
+                    }
+
+                    System.arraycopy(inBuffer, messageLength, inBuffer, 0, read - messageLength);
+                    read = read - messageLength;
+                }
+            } else {
+            }
+        }
     }
 
-    // MAIN LOOP
-    private static final Object[] sSendLock = new Object[]{};//learned this trick from some google example :)
-    //basically an empty array is lighter than an  actual new Object()...
-    private boolean mStop = false;
-    private byte mData = 0x00;
+    public void RefreshDeviceList() {
 
-    private class UsbRunnable implements Runnable {
-        private final UsbDevice mDevice;
+        new AsyncTask<Void, Void, List<UsbSerialPort>>() {
+            @Override
+            protected List<UsbSerialPort> doInBackground(Void... params) {
+                SystemClock.sleep(1000);
 
-        UsbRunnable(UsbDevice dev) {
-            mDevice = dev;
-        }
+                final List<UsbSerialDriver> drivers =
+                        UsbSerialProber.getDefaultProber().findAllDrivers(mUsbManager);
 
-        @Override
-        public void run() {//here the main USB functionality is implemented
-            UsbDeviceConnection conn = mUsbManager.openDevice(mDevice);
-            if (!conn.claimInterface(mDevice.getInterface(1), true)) {
+                final List<UsbSerialPort> result = new ArrayList<UsbSerialPort>();
+                for (final UsbSerialDriver driver : drivers) {
+                    final List<UsbSerialPort> ports = driver.getPorts();
+                    result.addAll(ports);
+                }
+
+                return result;
+            }
+
+            @Override
+            protected void onPostExecute(List<UsbSerialPort> result) {
+                if (result.size() > 0) {
+                    // we have a device connected. let's control it.
+                    fireUpTheArduino(result.get(0));
+
+                    stopIoManager();
+                    startIoManager();
+                }
+            }
+        }.execute((Void) null);
+    }
+
+    private void fireUpTheArduino(UsbSerialPort port) {
+        if (port != null) {
+            sPort = port;
+            final UsbManager usbManager = (UsbManager) activity.getSystemService(Context.USB_SERVICE);
+
+            UsbDeviceConnection connection = usbManager.openDevice(sPort.getDriver().getDevice());
+            if (connection == null) {
+                //mTitleTextView.setText("Opening device failed");
                 return;
             }
-            // Arduino Serial usb Conv
-            conn.controlTransfer(0x21, 34, 0, 0, null, 0, 0);
-            conn.controlTransfer(0x21, 32, 0, 0, new byte[] { (byte) 0x80,
-                    0x25, 0x00, 0x00, 0x00, 0x00, 0x08 }, 7, 0);
 
-            UsbEndpoint epIN = null;
-            UsbEndpoint epOUT = null;
-
-            UsbInterface usbIf = mDevice.getInterface(1);
-            for (int i = 0; i < usbIf.getEndpointCount(); i++) {
-                if (usbIf.getEndpoint(i).getType() == UsbConstants.USB_ENDPOINT_XFER_BULK) {
-                    if (usbIf.getEndpoint(i).getDirection() == UsbConstants.USB_DIR_IN)
-                        epIN = usbIf.getEndpoint(i);
-                    else
-                        epOUT = usbIf.getEndpoint(i);
+            try {
+                sPort.open(connection);
+                sPort.setParameters(9600, 8, UsbSerialPort.STOPBITS_1, UsbSerialPort.PARITY_NONE);
+            } catch (IOException e) {
+                //mTitleTextView.setText("Error opening device: " + e.getMessage());
+                try {
+                    sPort.close();
+                } catch (IOException e2) {
+                    // Ignore.
                 }
-            }
-
-            for (;;) {// this is the main loop for transferring
-                synchronized (sSendLock) {//ok there should be a OUT queue, no guarantee that the byte is sent actually
-                    try {
-                        sSendLock.wait();
-                    } catch (InterruptedException e) {
-                        if (mStop) {
-                            mConnectionHandler.onUsbStopped();
-                            return;
-                        }
-                        e.printStackTrace();
-                    }
-                }
-                conn.bulkTransfer(epOUT, new byte[] { mData }, 1, 0);
-
-                if (mStop) {
-                    mConnectionHandler.onUsbStopped();
-                    return;
-                }
+                sPort = null;
             }
         }
     }
 
-    // END MAIN LOOP
-    private BroadcastReceiver mPermissionReceiver = new PermissionReceiver(
-            new IPermissionListener() {
-                @Override
-                public void onPermissionDenied(UsbDevice d) {
-                    l("Permission denied on " + d.getDeviceId());
+    public enum ArduinoMessageId {
+        Heartbeat(0x0000),
+        AutoCycle(0x0001),
+        AutoCycleReply(0x0A01),
+        MachineError(0x0002),
+        GetMachineState(0x0003),
+        GetFirmwareVersion(0x0004),
+        GetFirmwareVersionReply(0x0A04),
+        GetSensorState(0x0005),
+        GetActuatorState(0x0006),
+        Sanitize(0x0007),
+        log(0x0008),
+        Initialize(0x009),
+        Stop(0x00A),
+        ToggleActuatorState(0x000B);
+
+        private int value;
+
+        private ArduinoMessageId(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return this.value;
+        }
+
+        public static ArduinoMessageId find (int value) {
+            ArduinoMessageId stuff[] = ArduinoMessageId.values();
+            for (int i =  0; i < stuff.length; i++) {
+                if (stuff[i].getValue() == value) {
+                    return stuff[i];
                 }
-            });
-
-    private static interface IPermissionListener {
-        void onPermissionDenied(UsbDevice d);
+            }
+            return null;
+        }
     }
 
-    public final static String TAG = "USBController";
+    private void WriteMessageToArduino(short message_id, byte[] message, short length) {
+        byte toSend[];
+        toSend = new byte[MinimumPacketSize + message.length];
 
-    private void l(Object msg) {
-        Log.d(TAG, ">==< " + msg.toString() + " >==<");
+        int i = 0;
+
+        toSend[i++] = (byte)(StartOfMessage & 0xFF);
+        toSend[i++] = (byte)((StartOfMessage >> 0x8) & 0xFF);
+        toSend[i++] = (byte)(toSend.length & 0xFF);
+        toSend[i++] = (byte)((toSend.length >> 0x8) & 0xFF);
+        toSend[i++] = 0; // source address
+        toSend[i++] = 0; // destination address
+        toSend[i++] = (byte)(message_id & 0xFF);
+        toSend[i++] = (byte)((message_id >> 0x8) & 0xFF);
+
+        for (int j = 0; j < message.length; j++) {
+            toSend[i++] = message[j];
+        }
+
+        toSend[i++] = 0; // CRC16
+        toSend[i++] = 0; // CRC16
+
+        toSend[i++] = (byte)(EndOfMessage & 0xFF);
+        toSend[i++] = (byte)((EndOfMessage >> 0x8) & 0xFF);
+
+        // send the message to Arduino
+        if (sPort != null) {
+            try {
+                sPort.write(toSend, 500);
+            } catch (Exception ex) {
+            }
+        } else {
+        }
     }
 
-    private void e(Object msg) {
-        Log.e(TAG, ">==< " + msg.toString() + " >==<");
+    public void SendAutoCycleMessage() {
+        byte autoCycle[] = new byte[3];
+        autoCycle[0] = 0;//(byte)CurrentSelection.getInstance().getCurrentSmoothie();
+        autoCycle[1] = 0;//(byte)CurrentSelection.getInstance().getCurrentLiquid();
+        autoCycle[2] = 0;//(byte)CurrentSelection.getInstance().getCurrentSupplement();
+        WriteMessageToArduino((short) ArduinoMessageId.AutoCycle.getValue(), autoCycle, (short) autoCycle.length);
     }
 }
