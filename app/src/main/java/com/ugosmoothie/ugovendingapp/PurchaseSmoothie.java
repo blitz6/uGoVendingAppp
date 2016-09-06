@@ -425,22 +425,64 @@ public class PurchaseSmoothie extends AppCompatActivity {
                         okay_button.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                View paymentCompleteView = (View)findViewById(R.id.paymentCompleteInfo);
+                                View paymentCompleteView = findViewById(R.id.paymentCompleteInfo);
                                 paymentCompleteView.setVisibility(View.INVISIBLE);
                                 paymentComplete();
+                            }
+                        });
+                    } else { // payment accepted
+                        View paymentIncompleteView = findViewById(R.id.paymentIncompleteInfo);
+                        paymentIncompleteView.setVisibility(View.VISIBLE);
 
+                        final Button incomplete_cancel_button = (Button) findViewById((R.id.incomplete_cancel));
+
+                        incomplete_cancel_button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                View paymentCompleteView = findViewById(R.id.paymentIncompleteInfo);
+                                paymentCompleteView.setVisibility(View.INVISIBLE);
+                                refresh();
                             }
                         });
 
-                    } else {
-                        // payment declined or error
-                        paymentComplete();
+                        final Button incomplete_retry_button = (Button) findViewById((R.id.incomplete_retry));
+
+                        incomplete_retry_button.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                View paymentCompleteView = findViewById(R.id.paymentIncompleteInfo);
+                                paymentCompleteView.setVisibility(View.INVISIBLE);
+                                paymentRequest();
+                            }
+                        });
                     }
                     break;
                 } else if (parsedMessage[i].equals(FlexPointQSR.FlexPointMessageId.UserCanceled.getValue())) {
-                    Toast.makeText(PurchaseSmoothie.this, "canceled", Toast.LENGTH_LONG);
                     // payment canceled
-                    paymentComplete();
+                    View paymentCancelView = findViewById(R.id.paymentCanceledInfo);
+                    paymentCancelView.setVisibility(View.VISIBLE);
+
+                    final Button cancel_cancel_button = (Button) findViewById((R.id.canceled_cancel));
+
+                    cancel_cancel_button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            View paymentCompleteView = findViewById(R.id.paymentCanceledInfo);
+                            paymentCompleteView.setVisibility(View.INVISIBLE);
+                            refresh();
+                        }
+                    });
+
+                    final Button cancel_retry_button = (Button) findViewById((R.id.canceled_retry));
+
+                    cancel_retry_button.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            View paymentCompleteView = findViewById(R.id.paymentCanceledInfo);
+                            paymentCompleteView.setVisibility(View.INVISIBLE);
+                            paymentRequest();
+                        }
+                    });
                 }
             }
         }

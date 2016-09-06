@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e600ac"
+    android:alpha="0.88">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The payment was canceled, would you like to try again?"
+        android:id="@+id/textView3"
+        android:layout_centerInParent="true" />
+
+    <LinearLayout
+        android:layout_marginTop="480dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+    <Button
+        android:id="@+id/canceled_cancel"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:alpha="0.8"
+        android:text="Cancel" />
+
+    <Button
+        android:id="@+id/canceled_retry"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:background="@drawable/buttonshape"
+        android:alpha="0.8"
+        android:text="Retry" />
+    </LinearLayout>
+
+</RelativeLayout>

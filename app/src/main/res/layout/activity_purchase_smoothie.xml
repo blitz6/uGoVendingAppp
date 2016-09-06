@@ -36,6 +36,24 @@
         android:visibility="invisible"
         android:layout_margin="0dp"
         android:layout_gravity="center" />
+
+    <include
+        android:id="@+id/paymentIncompleteInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        layout="@layout/payment_incomplete_popup"
+        android:visibility="invisible"
+        android:layout_margin="0dp"
+        android:layout_gravity="center" />
+
+    <include
+        android:id="@+id/paymentCanceledInfo"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        layout="@layout/payment_canceled_popup"
+        android:visibility="invisible"
+        android:layout_margin="0dp"
+        android:layout_gravity="center" />
 </RelativeLayout>
 
 
