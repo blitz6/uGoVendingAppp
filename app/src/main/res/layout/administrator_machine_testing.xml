@@ -69,8 +69,23 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Send TOGGLE PUMP command"
-                android:id="@+id/toggle_pump_button" />
+                android:text="Jog Top Liquid Dispenser"
+                android:id="@+id/jog_top_button" />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Jog Bottom Liquid Dispenser"
+                android:id="@+id/jog_bottom_button" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Poke Button"
+                android:id="@+id/poke_button" />
+
+
+
+
         </LinearLayout>
         </TableRow>
     </TableLayout>

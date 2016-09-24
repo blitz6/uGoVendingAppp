@@ -60,9 +60,12 @@ public class MachineTestingFragment extends Fragment {
         final Button clean = (Button) rootView.findViewById((R.id.clean_button));
         final Button initialize = (Button) rootView.findViewById((R.id.initialize_button));
         final Button stop = (Button) rootView.findViewById((R.id.stop_button));
-        final Button togglePump = (Button) rootView.findViewById((R.id.toggle_pump_button));
+        //final Button togglePump = (Button) rootView.findViewById((R.id.toggle_pump_button));
         final Button moveUp = (Button) rootView.findViewById((R.id.move_up_button));
         final Button moveDown = (Button) rootView.findViewById((R.id.move_down_button));
+        final Button jogTop = (Button) rootView.findViewById((R.id.jog_top_button));
+        final Button jogBottom = (Button) rootView.findViewById((R.id.jog_bottom_button));
+        final Button poke = (Button) rootView.findViewById((R.id.poke_button));
         loggerTextView = (TextView) rootView.findViewById(R.id.logger);
         scrollView = (ScrollView)rootView.findViewById(R.id.ScrollView01);
 
@@ -109,13 +112,48 @@ public class MachineTestingFragment extends Fragment {
             }
         });
 
-        togglePump.setOnClickListener(new View.OnClickListener() {
+        moveUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                writeMessage("Sending TOGGLE PUMP");
-                ToggleOutputMessage();
+                writeMessage("Moving Up");
+                MoveUpMessage();
             }
         });
+
+        moveDown.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeMessage("Moving Down");
+                MoveDownMessage();
+            }
+        });
+
+
+        jogTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeMessage("Jogging Top Liquid Dispenser");
+                MoveDownMessage();
+            }
+        });
+
+        jogBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                writeMessage("Jogging Bottom Liquid Dispenser");
+                MoveDownMessage();
+            }
+        });
+
+
+        poke.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+
 
         return rootView;
     }
@@ -157,6 +195,41 @@ public class MachineTestingFragment extends Fragment {
         WriteMessageToArduino((short)ArduinoMessageId.Stop.getValue(), stop, (short)stop.length);
 
     }
+
+    private void MoveUpMessage() {
+        byte moveUp[] = new byte[1];
+        WriteMessageToArduino((short)ArduinoMessageId.MoveUp.getValue(), moveUp, (short) moveUp.length);
+
+    }
+
+    private void MoveDownMessage() {
+        byte moveDown[] = new byte[1];
+        WriteMessageToArduino((short)ArduinoMessageId.MoveDown.getValue(), moveDown, (short)moveDown.length);
+
+    }
+
+    private void JogTopMessage() {
+        byte jogTop[] = new byte[1];
+        WriteMessageToArduino((short)ArduinoMessageId.JogTop.getValue(), jogTop, (short)jogTop.length);
+
+    }
+
+    private void JogBottomMessage() {
+        byte jogBottom[] = new byte[1];
+        WriteMessageToArduino((short)ArduinoMessageId.JogBottom.getValue(), jogBottom, (short)jogBottom.length);
+
+    }
+
+
+    private void PokeMessage() {
+        byte poke[] = new byte[1];
+        WriteMessageToArduino((short)ArduinoMessageId.Poke.getValue(), poke, (short)poke.length);
+
+    }
+
+
+
+
 
     // ARDUINO COMMUNICATION
 
@@ -357,6 +430,11 @@ catch(Exception e) {
     private enum ArduinoMessageId {
         Heartbeat(0x0000),
         AutoCycle(0x0001),
+        MoveUp (0x00002),
+        MoveDown (0x0003),
+        JogTop (0x00004),
+        JogBottom (0x00005),
+        Poke (0x000C),
         AutoCycleReply(0x0A01),
         MachineError(0x0002),
         GetMachineState(0x0003),
